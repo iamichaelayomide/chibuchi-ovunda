@@ -7,7 +7,6 @@ import {
   SearchCheck,
   FolderKanban,
   ArrowRight,
-  Check,
   Clock
 } from "lucide-react";
 import { SERVICES_DATA } from "../data/portfolioData";
@@ -30,7 +29,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
 
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-12 bg-[#faf9f5] border-b border-[#e4e4e7]">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
         
         {/* Center-Aligned Section Header */}
         <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-3">
@@ -46,7 +45,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
           Select a legal support area below to inspect specific deliverables, standard turnaround times, and practice workflows.
         </p>
 
-        {/* iOS-Style Segmented Service Selector Tabs (Zero Empty Side Space) */}
+        {/* iOS-Style Segmented Service Selector Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-8 bg-[#09090b]/5 p-2 rounded-2xl border border-[#09090b]/10 max-w-4xl mx-auto">
           {SERVICES_DATA.map((service) => {
             const Icon = iconMap[service.iconName] || Calendar;
@@ -70,7 +69,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
           })}
         </div>
 
-        {/* Centered iOS-Style Detail Plate */}
+        {/* Clean Centered Detail Plate (Zero Card-in-Card Clutter) */}
         <div className="max-w-4xl mx-auto text-left">
           <AnimatePresence mode="wait">
             <motion.div
@@ -101,18 +100,20 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
                 {activeService.fullDesc}
               </p>
 
-              {/* Deliverables Grid */}
+              {/* Clean Checklist Deliverables (Zero Boxed Cards) */}
               <div className="mb-10">
                 <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#09090b] mb-4">
                   Core Outputs & Deliverables
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3.5 pt-1">
                   {activeService.deliverables.map((item, dIdx) => (
                     <div
                       key={dIdx}
-                      className="flex items-start gap-3 p-3 rounded-xl bg-[#faf9f5] border border-[#e4e4e7] text-xs sm:text-sm text-[#09090b] font-medium leading-snug"
+                      className="flex items-start gap-3 text-xs sm:text-sm text-[#09090b] font-medium leading-relaxed"
                     >
-                      <Check className="w-4 h-4 text-[#6b1728] shrink-0 mt-0.5" />
+                      <span className="w-5 h-5 rounded-md bg-[#f5cad5] text-[#6b1728] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                        ✓
+                      </span>
                       <span>{item}</span>
                     </div>
                   ))}

@@ -71,11 +71,11 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7]">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7] pattern-dots-light">
+      <div className="max-w-7xl mx-auto text-center">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        {/* Center-Aligned Section Header */}
+        <div className="max-w-3xl mx-auto mb-16">
           <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-3">
             02 / THE PRACTICE TRANSFORMATION
           </p>
@@ -91,14 +91,14 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
         </div>
 
         {/* Audience Fit Cards (Who This Is For) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 text-center">
           {targetAudiences.map((aud, idx) => {
             const Icon = aud.icon;
             return (
-              <div key={idx} className="p-6 sm:p-8 rounded-2xl bg-[#faf9f5] border border-[#e4e4e7] flex flex-col justify-between">
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-white border border-[#e4e4e7] flex items-center justify-center text-[#6b1728] mb-4 shadow-xs">
-                    <Icon className="w-5 h-5" />
+              <div key={idx} className="p-6 sm:p-8 rounded-3xl bg-[#faf9f5] border border-[#e4e4e7] flex flex-col items-center justify-between shadow-xs">
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#e4e4e7] flex items-center justify-center text-[#6b1728] mb-4 shadow-xs">
+                    <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-base font-bold text-[#09090b] mb-2 font-heading">
                     {aud.title}
@@ -112,8 +112,8 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
           })}
         </div>
 
-        {/* Editorial Comparison Table */}
-        <div className="border-t border-[#e4e4e7] mb-24">
+        {/* Comparison Table */}
+        <div className="border-t border-[#e4e4e7] mb-24 text-left">
           <div className="hidden lg:grid grid-cols-12 py-4 border-b border-[#e4e4e7] text-xs font-mono font-bold uppercase tracking-wider text-[#71717a]">
             <div className="col-span-3">Practice Function</div>
             <div className="col-span-4 text-[#6b1728]">Traditional Practice Friction</div>
@@ -151,36 +151,26 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
 
         {/* Horizontal Process Steps (Roadmap) */}
         <div className="pt-12 border-t border-[#e4e4e7]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-            <div>
-              <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-2">
-                FRICTIONLESS ONBOARDING
-              </p>
-              <h3 className="text-2xl sm:text-4xl font-bold text-[#09090b] tracking-tight font-heading">
-                Three steps to a more organized practice
-              </h3>
-            </div>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 w-fit shrink-0 shadow-sm"
-            >
-              <span>Begin Step 01 Discovery</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+          <div className="max-w-2xl mx-auto mb-14 text-center">
+            <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-2">
+              FRICTIONLESS ONBOARDING
+            </p>
+            <h3 className="text-2xl sm:text-4xl font-bold text-[#09090b] tracking-tight font-heading mb-4">
+              Three steps to a more organized practice
+            </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 divide-y md:divide-y-0 md:divide-x divide-[#e4e4e7]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 divide-y md:divide-y-0 md:divide-x divide-[#e4e4e7] text-center mb-12">
             {steps.map((step, sIdx) => (
               <div
                 key={step.num}
-                className={`${sIdx !== 0 ? "pt-8 md:pt-0 md:pl-8 lg:pl-12" : ""}`}
+                className={`${sIdx !== 0 ? "pt-8 md:pt-0 md:pl-8 lg:pl-12" : ""} flex flex-col items-center`}
               >
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-center gap-3 mb-4">
                   <span className="text-4xl sm:text-5xl font-bold text-[#09090b] font-heading">
                     {step.num}
                   </span>
-                  <span className="text-[10px] font-mono text-[#6b1728] uppercase tracking-wider font-semibold">
+                  <span className="text-[10px] font-mono text-[#6b1728] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-[#f5cad5]">
                     {step.subtitle}
                   </span>
                 </div>
@@ -189,11 +179,21 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
                   {step.title}
                 </h4>
 
-                <p className="text-xs sm:text-sm text-[#52525b] leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-[#52525b] leading-relaxed font-light max-w-xs">
                   {step.desc}
                 </p>
               </div>
             ))}
+          </div>
+
+          <div>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-md group"
+            >
+              <span>Begin Step 01 Discovery Call</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </a>
           </div>
         </div>
 

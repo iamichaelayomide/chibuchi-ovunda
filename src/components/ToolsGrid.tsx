@@ -57,7 +57,7 @@ export const ToolsGrid: React.FC = () => {
                   type="button"
                   key={tool.name}
                   onClick={() => setSelectedTool(tool)}
-                  className={`p-4 text-left rounded-none transition-all duration-150 active:scale-[0.97] flex flex-col justify-between h-28 border ${
+                  className={`p-4 text-left rounded-2xl transition-all duration-150 active:scale-[0.97] flex flex-col justify-between h-28 border ${
                     isSelected
                       ? "bg-[#09090b] text-white border-[#09090b] shadow-md"
                       : "bg-white text-[#09090b] border-[#e4e4e7] hover:border-[#09090b]"
@@ -65,7 +65,7 @@ export const ToolsGrid: React.FC = () => {
                 >
                   <div className="flex items-center justify-between w-full">
                     <Icon className={`w-5 h-5 ${isSelected ? "text-[#f5cad5]" : "text-[#6b1728]"}`} />
-                    <span className={`text-[9px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 rounded-none ${
+                    <span className={`text-[9px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 rounded-2xl ${
                       isSelected ? "bg-white/15 text-white" : "bg-[#faf9f5] text-[#71717a]"
                     }`}>
                       {tool.proficiency}
@@ -86,7 +86,7 @@ export const ToolsGrid: React.FC = () => {
           </div>
 
           {/* Detailed Capabilities Strip */}
-          <div className="p-8 sm:p-10 rounded-none bg-white border border-[#e4e4e7] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="p-8 sm:p-10 rounded-2xl bg-white border border-[#e4e4e7] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-xs font-mono font-bold text-[#6b1728] uppercase">
@@ -96,7 +96,7 @@ export const ToolsGrid: React.FC = () => {
                 <h4 className="text-xl font-bold text-[#09090b] font-heading">
                   {selectedTool.name}
                 </h4>
-                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-none bg-[#f5cad5] text-[#09090b]">
+                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-2xl bg-[#f5cad5] text-[#09090b]">
                   {selectedTool.proficiency} Proficiency
                 </span>
               </div>
@@ -107,7 +107,7 @@ export const ToolsGrid: React.FC = () => {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-none bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shrink-0 shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shrink-0 shadow-sm"
             >
               <span>Connect Stack</span>
             </a>

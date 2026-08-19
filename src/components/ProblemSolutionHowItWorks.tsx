@@ -95,9 +95,9 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
           {targetAudiences.map((aud, idx) => {
             const Icon = aud.icon;
             return (
-              <div key={idx} className="p-6 sm:p-8 rounded-none bg-[#faf9f5] border border-[#e4e4e7] flex flex-col items-center justify-between shadow-xs">
+              <div key={idx} className="p-6 sm:p-8 rounded-2xl bg-[#faf9f5] border border-[#e4e4e7] flex flex-col items-center justify-between shadow-xs">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-none bg-white border border-[#e4e4e7] flex items-center justify-center text-[#6b1728] mb-4 shadow-xs">
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#e4e4e7] flex items-center justify-center text-[#6b1728] mb-4 shadow-xs">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-base font-bold text-[#09090b] mb-2 font-heading">
@@ -170,7 +170,7 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
                   <span className="text-4xl sm:text-5xl font-bold text-[#09090b] font-heading">
                     {step.num}
                   </span>
-                  <span className="text-[10px] font-mono text-[#6b1728] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-none bg-[#f5cad5]">
+                  <span className="text-[10px] font-mono text-[#6b1728] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-2xl bg-[#f5cad5]">
                     {step.subtitle}
                   </span>
                 </div>
@@ -189,7 +189,7 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
           <div>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-none bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-md group"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-md group"
             >
               <span>Begin Step 01 Discovery Call</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

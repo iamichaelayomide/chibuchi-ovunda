@@ -51,9 +51,9 @@ export const Header: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
         
-        {/* Brand Monogram & Title */}
+        {/* Brand Monogram & Title (iOS Rounded) */}
         <a href="#home" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 bg-[#09090b] text-[#f5cad5] flex items-center justify-center font-bold text-xs tracking-wider group-hover:bg-[#6b1728] transition-colors duration-160 font-heading">
+          <div className="w-10 h-10 rounded-xl bg-[#09090b] text-[#f5cad5] flex items-center justify-center font-bold text-sm tracking-wider group-hover:bg-[#6b1728] transition-colors duration-160 font-heading shadow-xs">
             CO
           </div>
           <div className="flex flex-col">
@@ -61,43 +61,37 @@ export const Header: React.FC = () => {
               {PORTFOLIO_INFO.name}
             </span>
             <span className="text-[11px] text-[#09090b]/70 flex items-center gap-1.5 font-mono">
-              <span className="w-1.5 h-1.5 bg-emerald-600"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
               {PORTFOLIO_INFO.title}
             </span>
           </div>
         </a>
 
-        {/* Center-Aligned Desktop Nav (Clean Lines, Zero Pill Bubbles) */}
-        <nav className="hidden lg:flex items-center gap-8">
+        {/* Center-Aligned Desktop Nav (iOS Rounded Segment) */}
+        <nav className="hidden lg:flex items-center gap-1 bg-[#09090b]/5 p-1 rounded-xl border border-[#09090b]/10">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.id}
                 href={link.href}
-                className={"text-xs font-bold uppercase tracking-wider transition-all duration-150 py-1 relative " + (
+                className={"px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-150 " + (
                   isActive
-                    ? "text-[#09090b]"
-                    : "text-[#09090b]/65 hover:text-[#09090b]"
+                    ? "bg-white text-[#09090b] shadow-xs font-heading"
+                    : "text-[#09090b]/70 hover:text-[#09090b] hover:bg-white/40"
                 )}
               >
-                <span>{link.label}</span>
-                {isActive && (
-                  <motion.div
-                    layoutId="header-active-line"
-                    className="absolute bottom-0 inset-x-0 h-0.5 bg-[#09090b]"
-                  />
-                )}
+                {link.label}
               </a>
             );
           })}
         </nav>
 
-        {/* Right CTA Button (Sharp Architectural Cut) */}
+        {/* Right CTA Button (iOS Rounded) */}
         <div className="hidden sm:flex items-center gap-3">
           <a
             href="#contact"
-            className="px-5 py-2.5 bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-xs group"
+            className="px-5 py-2.5 rounded-xl bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-xs group"
           >
             <span>Let’s Work Together</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-160" />
@@ -107,7 +101,7 @@ export const Header: React.FC = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 bg-white/80 border border-[#09090b]/15 text-[#09090b] active:scale-[0.95]"
+          className="lg:hidden p-2.5 rounded-xl bg-white/80 border border-[#09090b]/15 text-[#09090b] active:scale-[0.95]"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -130,7 +124,7 @@ export const Header: React.FC = () => {
                   key={link.id}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 text-sm font-bold text-[#09090b] hover:bg-white/50 transition-colors"
+                  className="py-2.5 px-4 rounded-xl text-sm font-bold text-[#09090b] hover:bg-white/50 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -138,7 +132,7 @@ export const Header: React.FC = () => {
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-2 w-full py-3.5 bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2"
+                className="mt-2 w-full py-3.5 rounded-xl bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2"
               >
                 <span>Let’s Work Together</span>
                 <ArrowRight className="w-3.5 h-3.5" />

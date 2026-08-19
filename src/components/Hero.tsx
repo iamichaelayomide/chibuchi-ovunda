@@ -12,14 +12,14 @@ export const Hero: React.FC<HeroProps> = () => {
     <section id="home" className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 px-4 sm:px-6 lg:px-12 pattern-grid-blush border-b border-[#09090b]/15 overflow-hidden">
       <div className="max-w-5xl mx-auto text-center relative z-10">
         
-        {/* Status Line (Zero Pill) */}
+        {/* Status Tag (iOS Rounded) */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-          className="inline-flex items-center gap-3 px-4 py-1.5 bg-white/90 border border-[#09090b]/15 shadow-xs mb-8"
+          className="inline-flex items-center gap-3 px-4 py-1.5 bg-white/90 backdrop-blur-sm border border-[#09090b]/15 shadow-xs rounded-xl mb-8"
         >
-          <span className="w-2 h-2 bg-emerald-600"></span>
+          <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#09090b]">
             {PORTFOLIO_INFO.availabilityStatus}
           </span>
@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = () => {
           I partner with attorneys, advocates, and commercial law teams to coordinate court hearing calendars, prepare court-ready agreements & MOUs, organize confidential matter files, and streamline client intake.
         </motion.p>
 
-        {/* Action CTAs (Zero Pills) */}
+        {/* Action CTAs (iOS Rounded) */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export const Hero: React.FC<HeroProps> = () => {
         >
           <a
             href="#contact"
-            className="px-8 py-4 bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-md group"
+            className="px-8 py-4 bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-md rounded-2xl group"
           >
             <span>Schedule Retainer Consultation</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-160" />
@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
           <a
             href="#about"
-            className="px-8 py-4 bg-white text-[#09090b] border border-[#09090b]/15 text-xs font-bold uppercase tracking-wider hover:bg-white/80 active:scale-[0.97] transition-all duration-160 shadow-xs"
+            className="px-8 py-4 bg-white text-[#09090b] border border-[#09090b]/15 text-xs font-bold uppercase tracking-wider hover:bg-white/80 active:scale-[0.97] transition-all duration-160 shadow-xs rounded-2xl"
           >
             <span>Meet Chibuchi Ovunda</span>
           </a>

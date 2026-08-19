@@ -55,42 +55,36 @@ export const WorkShowcase: React.FC = () => {
           </p>
         </div>
 
-        {/* Center-Aligned Filter Tabs (Zero Pills) */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-12 border-b border-[#e4e4e7] pb-4">
+        {/* Center-Aligned Filter Tabs (iOS Rounded) */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 border-b border-[#e4e4e7] pb-4">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`text-xs font-bold tracking-wider uppercase transition-all duration-150 py-1.5 relative ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wider uppercase transition-all duration-150 active:scale-[0.97] ${
                   isSelected
-                    ? "text-[#09090b]"
-                    : "text-[#71717a] hover:text-[#09090b]"
+                    ? "bg-[#09090b] text-white shadow-sm font-heading"
+                    : "text-[#71717a] hover:text-[#09090b] hover:bg-[#faf9f5]"
                 }`}
               >
                 <span>{cat.label}</span>
-                {isSelected && (
-                  <motion.div
-                    layoutId="work-active-line"
-                    className="absolute bottom-0 inset-x-0 h-0.5 bg-[#09090b]"
-                  />
-                )}
               </button>
             );
           })}
         </div>
 
-        {/* Work Plates Grid (Architectural Framing, Zero Clunky Boxed Cards) */}
+        {/* Work Plates Grid (iOS Rounded Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredSamples.map((sample) => (
             <article
               key={sample.id}
               onClick={() => setActiveModalSample(sample)}
-              className="group cursor-pointer flex flex-col bg-white p-3 border border-[#e4e4e7] shadow-xs hover:border-[#09090b] transition-all hover:shadow-md"
+              className="group cursor-pointer flex flex-col bg-white rounded-3xl p-4 border border-[#e4e4e7] shadow-sm hover:border-[#09090b] transition-all hover:shadow-md"
             >
               {/* Image Frame */}
-              <div className="relative aspect-[16/10] bg-[#09090b] overflow-hidden border border-[#e4e4e7] mb-3.5">
+              <div className="relative aspect-[16/10] bg-[#09090b] rounded-2xl overflow-hidden border border-[#e4e4e7] mb-4">
                 <img
                   src={sample.imageSrc}
                   alt={sample.title}
@@ -99,19 +93,19 @@ export const WorkShowcase: React.FC = () => {
                 />
 
                 {/* Category Tag */}
-                <div className="absolute top-2.5 left-2.5 px-2 py-0.5 bg-[#09090b]/90 text-white text-[10px] font-mono font-bold tracking-wider uppercase">
+                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-[#09090b]/85 backdrop-blur-sm text-white text-[10px] font-mono font-bold tracking-wider uppercase">
                   {sample.categoryLabel}
                 </div>
 
                 {/* Redacted Tag */}
-                <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-white text-[#6b1728] text-[9px] font-mono font-bold flex items-center gap-1 border border-[#e4e4e7]">
+                <div className="absolute top-3 right-3 px-2.5 py-0.5 rounded-lg bg-white/95 text-[#6b1728] text-[9px] font-mono font-bold flex items-center gap-1 border border-[#e4e4e7]">
                   <ShieldCheck className="w-3 h-3" />
                   <span>Redacted</span>
                 </div>
 
                 {/* Hover Trigger */}
                 <div className="absolute inset-0 bg-[#09090b]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-160 flex items-center justify-center text-white">
-                  <div className="px-4 py-2 bg-white text-[#09090b] font-bold text-xs flex items-center gap-1.5 shadow-md font-heading uppercase tracking-wider">
+                  <div className="px-4 py-2 rounded-xl bg-white text-[#09090b] font-bold text-xs flex items-center gap-1.5 shadow-md font-heading uppercase tracking-wider">
                     <Maximize2 className="w-3.5 h-3.5" />
                     <span>Inspect Case Breakdown</span>
                   </div>
@@ -119,7 +113,7 @@ export const WorkShowcase: React.FC = () => {
               </div>
 
               {/* Editorial Caption */}
-              <div className="flex items-start justify-between gap-3 p-1.5">
+              <div className="flex items-start justify-between gap-3 p-1">
                 <div>
                   <h3 className="text-base font-bold text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150 font-heading">
                     {sample.title}
@@ -128,8 +122,8 @@ export const WorkShowcase: React.FC = () => {
                     {sample.shortDesc}
                   </p>
                 </div>
-                <div className="w-6 h-6 border border-[#e4e4e7] flex items-center justify-center shrink-0 text-[#09090b] group-hover:bg-[#09090b] group-hover:text-white group-hover:border-[#09090b] transition-all duration-150 mt-1">
-                  <ArrowRight className="w-3 h-3" />
+                <div className="w-7 h-7 rounded-xl border border-[#e4e4e7] flex items-center justify-center shrink-0 text-[#09090b] group-hover:bg-[#09090b] group-hover:text-white group-hover:border-[#09090b] transition-all duration-150 mt-1">
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
             </article>
@@ -138,7 +132,7 @@ export const WorkShowcase: React.FC = () => {
 
       </div>
 
-      {/* Lightbox Modal (Sharp Architectural Cut) */}
+      {/* Lightbox Modal (iOS Rounded) */}
       <AnimatePresence>
         {activeModalSample && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-10 overflow-y-auto">
@@ -156,11 +150,11 @@ export const WorkShowcase: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.97, y: 8 }}
               transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
-              className="relative w-full max-w-4xl bg-white overflow-hidden shadow-2xl border border-[#e4e4e7] z-10 my-auto max-h-[90vh] flex flex-col md:flex-row"
+              className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#e4e4e7] z-10 my-auto max-h-[90vh] flex flex-col md:flex-row"
             >
               <button
                 onClick={() => setActiveModalSample(null)}
-                className="absolute top-4 right-4 z-20 p-2 bg-[#09090b] text-white hover:bg-[#6b1728] active:scale-[0.95] transition-all duration-150 shadow-md"
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-xl bg-[#09090b] text-white hover:bg-[#6b1728] active:scale-[0.95] transition-all duration-150 shadow-md"
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
@@ -170,7 +164,7 @@ export const WorkShowcase: React.FC = () => {
                 <img
                   src={activeModalSample.imageSrc}
                   alt={activeModalSample.title}
-                  className="max-h-[460px] w-full object-contain shadow-xl"
+                  className="max-h-[460px] w-full object-contain rounded-xl shadow-xl"
                 />
               </div>
 
@@ -189,7 +183,7 @@ export const WorkShowcase: React.FC = () => {
                   </p>
 
                   <div className="space-y-3.5 mb-6">
-                    <div className="p-3.5 bg-[#faf9f5] border border-[#e4e4e7]">
+                    <div className="p-3.5 rounded-xl bg-[#faf9f5] border border-[#e4e4e7]">
                       <h4 className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-1">
                         Challenge
                       </h4>
@@ -198,7 +192,7 @@ export const WorkShowcase: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="p-3.5 bg-[#faf9f5] border border-[#e4e4e7]">
+                    <div className="p-3.5 rounded-xl bg-[#faf9f5] border border-[#e4e4e7]">
                       <h4 className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-1">
                         Execution
                       </h4>
@@ -207,7 +201,7 @@ export const WorkShowcase: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="p-3.5 bg-[#09090b] text-white border border-[#27272a]">
+                    <div className="p-3.5 rounded-xl bg-[#09090b] text-white border border-[#27272a]">
                       <h4 className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#f4c8d1] mb-1">
                         Outcome
                       </h4>
@@ -222,7 +216,7 @@ export const WorkShowcase: React.FC = () => {
                   <a
                     href="#contact"
                     onClick={() => setActiveModalSample(null)}
-                    className="w-full py-3.5 bg-[#09090b] text-white text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-sm"
+                    className="w-full py-3.5 rounded-xl bg-[#09090b] text-white text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-sm"
                   >
                     <span>Request Similar Workflow</span>
                     <ArrowRight className="w-3.5 h-3.5" />

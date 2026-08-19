@@ -71,7 +71,7 @@ export const FAQ: React.FC = () => {
                     {faq.q}
                   </span>
                   <div
-                    className={`w-7 h-7 rounded-none flex items-center justify-center shrink-0 transition-colors duration-150 ${
+                    className={`w-7 h-7 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-150 ${
                       isOpen ? "bg-[#09090b] text-[#f5cad5]" : "bg-[#faf9f5] text-[#71717a] group-hover:bg-[#f5cad5] group-hover:text-[#09090b]"
                     }`}
                   >

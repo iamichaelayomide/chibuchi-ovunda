@@ -37,7 +37,7 @@ export const AboutMe: React.FC = () => {
           Bridging high-stakes legal advocacy with flawless operational precision.
         </motion.h2>
 
-        {/* Scroll-Driven Reveal: Architectural Framed Portrait (Zero Boxed Cards / Zero Pills) */}
+        {/* Scroll-Driven Reveal: iOS Rounded Portrait Frame */}
         <motion.div
           initial={{ opacity: 0, y: 32, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -45,8 +45,8 @@ export const AboutMe: React.FC = () => {
           transition={{ duration: 0.55, delay: 0.12, ease: [0.23, 1, 0.32, 1] }}
           className="max-w-xs sm:max-w-sm mx-auto mb-12"
         >
-          <div className="p-2.5 bg-[#f5cad5] border border-[#09090b]/15 shadow-xl">
-            <div className="relative aspect-[3/4] bg-[#09090b] overflow-hidden">
+          <div className="p-3 bg-[#f5cad5] border border-[#09090b]/15 rounded-3xl shadow-xl">
+            <div className="relative aspect-[3/4] bg-[#09090b] rounded-2xl overflow-hidden">
               <img
                 src="/images/hero_portrait.webp"
                 alt="Chibuchi Ovunda, Virtual Legal Assistant"
@@ -54,18 +54,18 @@ export const AboutMe: React.FC = () => {
                 loading="lazy"
               />
 
-              {/* Top Sharp Tag */}
+              {/* Top Tag */}
               <div className="absolute top-3 inset-x-3 flex items-center justify-between">
-                <span className="px-2.5 py-1 bg-[#09090b]/90 text-white text-[10px] font-mono font-bold tracking-wider uppercase flex items-center gap-1">
+                <span className="px-2.5 py-1 bg-[#09090b]/90 text-white text-[10px] font-mono font-bold tracking-wider uppercase rounded-lg flex items-center gap-1">
                   <ShieldCheck className="w-3 h-3 text-[#f4c8d1]" />
                   <span>Verified Legal Assistant</span>
                 </span>
-                <span className="px-2 py-0.5 bg-white text-[#09090b] text-[10px] font-mono font-bold">
+                <span className="px-2.5 py-0.5 bg-white text-[#09090b] text-[10px] font-mono font-bold rounded-lg">
                   {PORTFOLIO_INFO.experienceYears}
                 </span>
               </div>
 
-              {/* Bottom Sharp Name Plate */}
+              {/* Bottom Name Plate */}
               <div className="absolute bottom-0 inset-x-0 p-3.5 bg-[#09090b]/90 border-t border-[#27272a] text-white text-center">
                 <p className="text-sm font-bold font-heading">{PORTFOLIO_INFO.name}</p>
                 <p className="text-[10px] text-[#a1a1aa] font-mono mt-0.5">Akure, Nigeria · Available Worldwide</p>
@@ -88,12 +88,12 @@ export const AboutMe: React.FC = () => {
           <p>
             My specialized operations cover court hearing docketing across timezones, custom Gmail labeling systems, drafting court-compliant commercial agreements & MOUs, executive minute taking, and building standardized 8-folder matter archives in Google Drive and Clio.
           </p>
-          <div className="py-4 px-6 border-y border-[#e4e4e7] text-xs sm:text-sm text-[#09090b] font-normal italic max-w-xl mx-auto">
+          <div className="p-4 rounded-2xl bg-[#faf9f5] border border-[#e4e4e7] text-xs sm:text-sm text-[#09090b] font-normal italic max-w-xl mx-auto">
             “Legal practice demands discretion, punctuality, and zero margin for error. My role is to shoulder operational complexity so counsel can focus entirely on client advocacy.”
           </div>
         </motion.div>
 
-        {/* Architectural Tabular Metadata (Zero Boxed Cards / Zero Pills) */}
+        {/* Architectural Tabular Metadata (iOS Rounded) */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export const AboutMe: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* CTA Button (Sharp Architectural Cut) */}
+        {/* CTA Button (iOS Rounded) */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export const AboutMe: React.FC = () => {
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-md group"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-md rounded-2xl group"
           >
             <span>Let’s Work Together</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" />

@@ -1,49 +1,72 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, X, Users, Scale, Briefcase } from "lucide-react";
 
 export const ProblemSolutionHowItWorks: React.FC = () => {
   const comparisonRows = [
     {
       label: "Billable Time Allocation",
-      without: "15+ hours lost weekly to document formatting, folder searches, and administrative triage.",
-      withVA: "Time redirected exclusively to client counsel, advisory work, and courtroom preparation."
+      without: "Attorneys spend 15+ hours weekly on document formatting, file retrieval, and administrative triage instead of client counsel.",
+      withVA: "100% of attorney time redirected to client advisory, strategy, courtroom preparation, and revenue-generating legal work."
     },
     {
-      label: "Court Briefs & Agreements",
-      without: "Rushed formatting, inconsistent heading styles, and manual Table of Authorities compiling.",
-      withVA: "Impeccably formatted, court-ready documents following exact jurisdictional rules."
+      label: "Court Briefs & Commercial MOUs",
+      without: "Rushed drafting, inconsistent numbering, citation errors, and formatting headaches before critical court filing deadlines.",
+      withVA: "Court-ready briefs, agreements, and MOUs formatted strictly to jurisdictional standards, complete with verified citations."
     },
     {
-      label: "Matter File Systems",
-      without: "Disorganized cloud folders, duplicate drafts, and difficulty retrieving consultation records.",
-      withVA: "Standardized matter tree across Google Workspace & Clio with instant file retrieval."
+      label: "Hearing Calendar & Deadlines",
+      without: "Overlapping consultation dates, chaotic calendar reminders, and risk of delayed court appearances across timezones.",
+      withVA: "Centralized court docketing, synchronized meeting links, and proactive reminders sent well before statutory deadlines."
     },
     {
-      label: "Client Inquiries & Triage",
-      without: "Prospective inquiries lost in email clutter; delayed hearing notifications to clients.",
-      withVA: "Structured intake databases, automated logging, and priority updates under 2h SLA."
+      label: "Matter File Organization",
+      without: "Scattered cloud folders across personal drives, duplicate draft versions, and misplaced client consultation notes.",
+      withVA: "Standardized matter folder architecture in Google Workspace and Clio with instant document retrieval."
+    },
+    {
+      label: "Client Inquiries & Intake",
+      without: "Prospective client inquiries lost in unorganized email inboxes with delayed follow-ups and unrecorded matter details.",
+      withVA: "Automated intake databases, timestamped dispute categorization, and rapid response coordination under 2h SLA."
+    }
+  ];
+
+  const targetAudiences = [
+    {
+      icon: Scale,
+      title: "Solo Practitioners & Barristers",
+      desc: "Get executive-level practice support without the payroll overhead, physical office space, or benefits expense of full-time staff."
+    },
+    {
+      icon: Briefcase,
+      title: "Commercial & Litigation Chambers",
+      desc: "Eliminate brief formatting bottlenecks, absorb matter volume spikes, and standardize case file indexing across your team."
+    },
+    {
+      icon: Users,
+      title: "Corporate Legal Advisors",
+      desc: "Keep contracts, board minutes, and partner agreements formatted flawlessly with reliable calendar and intake coordination."
     }
   ];
 
   const steps = [
     {
       num: "01",
-      title: "Scope & Matter Alignment",
+      title: "Scope & Practice Alignment",
       subtitle: "20-Min Discovery",
-      desc: "We review your active caseload, document workflows, formatting standards, and preferred tools."
+      desc: "We discuss your active caseload, matter types, formatting preferences, and existing tool ecosystem."
     },
     {
       num: "02",
-      title: "NDA & Secure Integration",
+      title: "NDA Execution & Integration",
       subtitle: "Same-Day Setup",
-      desc: "Mutual Non-Disclosure Agreement execution and permission setup in your Google Workspace or Clio."
+      desc: "Mutual Non-Disclosure Agreement execution and permission setup in your Google Workspace, Clio, or Microsoft 365."
     },
     {
       num: "03",
-      title: "Dependable Daily Execution",
+      title: "Immediate & Dependable Delivery",
       subtitle: "Active Retainer",
-      desc: "Daily task logging, same-day brief turnarounds, and proactive statutory deadline tracking."
+      desc: "Daily task logging, same-day document turnarounds, hearing docket updates, and structured weekly reporting."
     }
   ];
 
@@ -57,22 +80,44 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
             02 / THE PRACTICE TRANSFORMATION
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-[#09090b] tracking-tight leading-tight mb-5">
-            Operational friction, <br />
-            <span className=" italic font-normal text-[#6b1728]">systematically resolved.</span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#09090b] tracking-tight leading-tight mb-5 font-heading">
+            Stop losing billable hours to <br />
+            <span className="text-[#6b1728] font-normal">administrative bottlenecks.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
-            Attorneys lose an estimated 35% of their working week to administrative tasks. Here is the operational shift when partnering with a dedicated legal assistant.
+            You trained for years to practice law, represent clients, and win cases. Routine administrative friction should not consume your evenings and weekends.
           </p>
         </div>
 
-        {/* Editorial Comparison Table (Zero Boxed Cards) */}
+        {/* Audience Fit Cards (Who This Is For) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+          {targetAudiences.map((aud, idx) => {
+            const Icon = aud.icon;
+            return (
+              <div key={idx} className="p-6 sm:p-8 rounded-2xl bg-[#faf9f5] border border-[#e4e4e7] flex flex-col justify-between">
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-white border border-[#e4e4e7] flex items-center justify-center text-[#6b1728] mb-4 shadow-xs">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#09090b] mb-2 font-heading">
+                    {aud.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#52525b] leading-relaxed font-light">
+                    {aud.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Editorial Comparison Table */}
         <div className="border-t border-[#e4e4e7] mb-24">
           <div className="hidden lg:grid grid-cols-12 py-4 border-b border-[#e4e4e7] text-xs font-mono font-bold uppercase tracking-wider text-[#71717a]">
-            <div className="col-span-3">Practice Area</div>
+            <div className="col-span-3">Practice Function</div>
             <div className="col-span-4 text-[#6b1728]">Traditional Practice Friction</div>
-            <div className="col-span-5 text-[#09090b]">With Chibuchi Ovunda</div>
+            <div className="col-span-5 text-[#09090b]">With Chibuchi Ovunda as Partner</div>
           </div>
 
           <div className="divide-y divide-[#e4e4e7]">
@@ -81,23 +126,20 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
                 key={idx}
                 className="py-6 lg:py-7 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start hover:bg-[#faf9f5]/60 transition-colors duration-150"
               >
-                {/* Category */}
                 <div className="lg:col-span-3">
                   <span className="text-xs font-mono text-[#71717a] block mb-1 lg:hidden">
-                    AREA {idx + 1}
+                    FUNCTION {idx + 1}
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold  text-[#09090b]">
+                  <h3 className="text-sm sm:text-base font-bold text-[#09090b] font-heading">
                     {row.label}
                   </h3>
                 </div>
 
-                {/* Without */}
                 <div className="lg:col-span-4 flex items-start gap-2.5 text-xs sm:text-sm text-[#71717a] font-light leading-relaxed">
                   <X className="w-4 h-4 text-[#6b1728] shrink-0 mt-0.5" />
                   <span>{row.without}</span>
                 </div>
 
-                {/* With */}
                 <div className="lg:col-span-5 flex items-start gap-2.5 text-xs sm:text-sm text-[#09090b] font-medium leading-relaxed">
                   <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>{row.withVA}</span>
@@ -107,23 +149,23 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* Horizontal Process Steps (Clean Numbered Flow, Zero Bulky Cards) */}
+        {/* Horizontal Process Steps (Roadmap) */}
         <div className="pt-12 border-t border-[#e4e4e7]">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
               <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-2">
-                ONBOARDING ROADMAP
+                FRICTIONLESS ONBOARDING
               </p>
-              <h3 className="text-2xl sm:text-4xl  font-bold text-[#09090b] tracking-tight">
-                Three steps to an organized practice
+              <h3 className="text-2xl sm:text-4xl font-bold text-[#09090b] tracking-tight font-heading">
+                Three steps to a more organized practice
               </h3>
             </div>
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 w-fit shrink-0"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 w-fit shrink-0 shadow-sm"
             >
-              <span>Begin Step 01</span>
+              <span>Begin Step 01 Discovery</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -135,7 +177,7 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
                 className={`${sIdx !== 0 ? "pt-8 md:pt-0 md:pl-8 lg:pl-12" : ""}`}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-4xl sm:text-5xl  font-bold text-[#09090b]">
+                  <span className="text-4xl sm:text-5xl font-bold text-[#09090b] font-heading">
                     {step.num}
                   </span>
                   <span className="text-[10px] font-mono text-[#6b1728] uppercase tracking-wider font-semibold">
@@ -143,7 +185,7 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
                   </span>
                 </div>
 
-                <h4 className="text-lg  font-bold text-[#09090b] mb-2">
+                <h4 className="text-lg font-bold text-[#09090b] mb-2 font-heading">
                   {step.title}
                 </h4>
 

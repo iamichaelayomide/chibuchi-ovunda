@@ -1,66 +1,49 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  XCircle,
-  CheckCircle2,
-  ArrowRight,
-  ShieldCheck,
-  Zap,
-  FolderTree,
-  FileCheck2,
-  Clock,
-  Sparkles
-} from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
 
 export const ProblemSolutionHowItWorks: React.FC = () => {
-  const problems = [
+  const comparisonRows = [
     {
-      title: "Lost Billable Hours",
-      desc: "Spending hours weekly on document formatting, folder searching, and administrative triage instead of client advisory and courtroom prep."
+      label: "Billable Time Allocation",
+      without: "15+ hours lost weekly to document formatting, folder searches, and administrative triage.",
+      withVA: "Time redirected exclusively to client counsel, advisory work, and courtroom preparation."
     },
     {
-      title: "Formatting & Citation Bottlenecks",
-      desc: "Rushing to format motions, Table of Authorities, and commercial agreements before strict statutory filing deadlines."
+      label: "Court Briefs & Agreements",
+      without: "Rushed formatting, inconsistent heading styles, and manual Table of Authorities compiling.",
+      withVA: "Impeccably formatted, court-ready documents following exact jurisdictional rules."
     },
     {
-      title: "Scattered Matter Records",
-      desc: "Disorganized cloud storage, mixed document versions, and delayed responses to prospective client inquiries."
-    }
-  ];
-
-  const solutions = [
-    {
-      title: "Reclaim Focus on Client Counsel",
-      desc: "Delegate routine matter organization, pleadings indexing, and calendar docketing to a trusted virtual specialist."
+      label: "Matter File Systems",
+      without: "Disorganized cloud folders, duplicate drafts, and difficulty retrieving consultation records.",
+      withVA: "Standardized matter tree across Google Workspace & Clio with instant file retrieval."
     },
     {
-      title: "Court-Compliant Precision",
-      desc: "Receive clean, impeccably formatted agreements, MOUs, and briefs adhering to strict jurisdictional conventions."
-    },
-    {
-      title: "Standardized File Architecture",
-      desc: "Instant retrieval of client consultation notes, intake logs, and matter history with structured Google Workspace and Clio systems."
+      label: "Client Inquiries & Triage",
+      without: "Prospective inquiries lost in email clutter; delayed hearing notifications to clients.",
+      withVA: "Structured intake databases, automated logging, and priority updates under 2h SLA."
     }
   ];
 
   const steps = [
     {
-      number: "01",
-      tag: "DISCOVERY & SCOPE",
-      title: "Initial Practice Consultation",
-      desc: "We review your active matters, practice areas, document workflows, and specific support requirements."
+      num: "01",
+      title: "Scope & Matter Alignment",
+      subtitle: "20-Min Discovery",
+      desc: "We review your active caseload, document workflows, formatting standards, and preferred tools."
     },
     {
-      number: "02",
-      tag: "NDA & INTEGRATION",
-      title: "Secure Protocol Setup",
-      desc: "Execution of strict Non-Disclosure Agreements, followed by frictionless integration into your Google Workspace, Clio, or Microsoft 365 repository."
+      num: "02",
+      title: "NDA & Secure Integration",
+      subtitle: "Same-Day Setup",
+      desc: "Mutual Non-Disclosure Agreement execution and permission setup in your Google Workspace or Clio."
     },
     {
-      number: "03",
-      tag: "ONGOING DELIVERY",
+      num: "03",
       title: "Dependable Daily Execution",
-      desc: "Proactive matter management, same-day formatting turnarounds, and structured task logs delivered with under 2h response SLA."
+      subtitle: "Active Retainer",
+      desc: "Daily task logging, same-day brief turnarounds, and proactive statutory deadline tracking."
     }
   ];
 
@@ -70,145 +53,106 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-            className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-3"
-          >
-            02 / THE PRACTICE UPGRADE
-          </motion.p>
+          <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-3">
+            02 / THE PRACTICE TRANSFORMATION
+          </p>
           
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#09090b] tracking-tight leading-tight mb-5"
-          >
-            Eliminate operational friction. <br />
-            <span className="font-serif italic font-normal text-[#6b1728]">Focus on legal counsel.</span>
-          </motion.h2>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#09090b] tracking-tight leading-tight mb-5">
+            Operational friction, <br />
+            <span className="font-serif italic font-normal text-[#6b1728]">systematically resolved.</span>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.16, ease: [0.23, 1, 0.32, 1] }}
-            className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light"
-          >
-            Attorneys lose an estimated 35% of their working week to administrative bottlenecks. Here is how structured virtual support transforms your day-to-day practice.
-          </motion.p>
+          <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
+            Attorneys lose an estimated 35% of their working week to administrative tasks. Here is the operational shift when partnering with a dedicated legal assistant.
+          </p>
         </div>
 
-        {/* Problem vs Solution Comparison Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          
-          {/* Problem Column */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#faf9f5] border border-[#e4e4e7]">
-            <div className="flex items-center gap-2.5 mb-6 text-[#6b1728] font-serif font-bold text-lg sm:text-xl">
-              <XCircle className="w-5 h-5 text-[#6b1728]" />
-              <span>Without Dedicated Legal Operations</span>
-            </div>
-
-            <div className="space-y-6">
-              {problems.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3.5">
-                  <div className="w-2 h-2 rounded-full bg-[#6b1728] mt-2 shrink-0"></div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#09090b] mb-1 font-serif">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#52525b] leading-relaxed font-light">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Editorial Comparison Table (Zero Boxed Cards) */}
+        <div className="border-t border-[#e4e4e7] mb-24">
+          <div className="hidden lg:grid grid-cols-12 py-4 border-b border-[#e4e4e7] text-xs font-mono font-bold uppercase tracking-wider text-[#71717a]">
+            <div className="col-span-3">Practice Area</div>
+            <div className="col-span-4 text-[#6b1728]">Traditional Practice Friction</div>
+            <div className="col-span-5 text-[#09090b]">With Chibuchi Ovunda</div>
           </div>
 
-          {/* Solution Column */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#09090b] text-white border border-[#27272a] shadow-lg">
-            <div className="flex items-center gap-2.5 mb-6 text-[#f4c8d1] font-serif font-bold text-lg sm:text-xl">
-              <CheckCircle2 className="w-5 h-5 text-[#f4c8d1]" />
-              <span>With Chibuchi Ovunda as Practice Partner</span>
-            </div>
-
-            <div className="space-y-6">
-              {solutions.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3.5">
-                  <div className="w-2 h-2 rounded-full bg-[#f4c8d1] mt-2 shrink-0"></div>
-                  <div>
-                    <h3 className="text-sm font-bold text-white mb-1 font-serif">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-light">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
-        {/* How It Works (3 Steps) */}
-        <div className="pt-12 border-t border-[#e4e4e7]">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-2">
-              SEAMLESS ONBOARDING
-            </p>
-            <h3 className="text-2xl sm:text-4xl font-serif font-bold text-[#09090b] tracking-tight">
-              Three steps to a more organized practice
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {steps.map((step, idx) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08, ease: [0.23, 1, 0.32, 1] }}
-                className="p-8 rounded-2xl bg-[#faf9f5] border border-[#e4e4e7] flex flex-col justify-between group hover:border-[#09090b] transition-colors duration-160"
+          <div className="divide-y divide-[#e4e4e7]">
+            {comparisonRows.map((row, idx) => (
+              <div
+                key={idx}
+                className="py-6 lg:py-7 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start hover:bg-[#faf9f5]/60 transition-colors duration-150"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-3xl font-serif font-bold text-[#09090b]">
-                      {step.number}
-                    </span>
-                    <span className="text-[10px] font-mono font-semibold px-2.5 py-1 rounded-full bg-white border border-[#e4e4e7] text-[#52525b] uppercase tracking-wider">
-                      {step.tag}
-                    </span>
-                  </div>
-
-                  <h4 className="text-base font-bold font-serif text-[#09090b] mb-2">
-                    {step.title}
-                  </h4>
-
-                  <p className="text-xs text-[#52525b] leading-relaxed font-light">
-                    {step.desc}
-                  </p>
+                {/* Category */}
+                <div className="lg:col-span-3">
+                  <span className="text-xs font-mono text-[#71717a] block mb-1 lg:hidden">
+                    AREA {idx + 1}
+                  </span>
+                  <h3 className="text-sm sm:text-base font-bold font-serif text-[#09090b]">
+                    {row.label}
+                  </h3>
                 </div>
-              </motion.div>
+
+                {/* Without */}
+                <div className="lg:col-span-4 flex items-start gap-2.5 text-xs sm:text-sm text-[#71717a] font-light leading-relaxed">
+                  <X className="w-4 h-4 text-[#6b1728] shrink-0 mt-0.5" />
+                  <span>{row.without}</span>
+                </div>
+
+                {/* With */}
+                <div className="lg:col-span-5 flex items-start gap-2.5 text-xs sm:text-sm text-[#09090b] font-medium leading-relaxed">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>{row.withVA}</span>
+                </div>
+              </div>
             ))}
           </div>
+        </div>
 
-          {/* Action Link */}
-          <div className="mt-12 text-center">
+        {/* Horizontal Process Steps (Clean Numbered Flow, Zero Bulky Cards) */}
+        <div className="pt-12 border-t border-[#e4e4e7]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+            <div>
+              <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-2">
+                ONBOARDING ROADMAP
+              </p>
+              <h3 className="text-2xl sm:text-4xl font-serif font-bold text-[#09090b] tracking-tight">
+                Three steps to an organized practice
+              </h3>
+            </div>
+
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-sm group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 w-fit shrink-0"
             >
-              <span>Schedule Step 01 Discovery Call</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-160" />
+              <span>Begin Step 01</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 divide-y md:divide-y-0 md:divide-x divide-[#e4e4e7]">
+            {steps.map((step, sIdx) => (
+              <div
+                key={step.num}
+                className={`${sIdx !== 0 ? "pt-8 md:pt-0 md:pl-8 lg:pl-12" : ""}`}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-4xl sm:text-5xl font-serif font-bold text-[#09090b]">
+                    {step.num}
+                  </span>
+                  <span className="text-[10px] font-mono text-[#6b1728] uppercase tracking-wider font-semibold">
+                    {step.subtitle}
+                  </span>
+                </div>
+
+                <h4 className="text-lg font-serif font-bold text-[#09090b] mb-2">
+                  {step.title}
+                </h4>
+
+                <p className="text-xs sm:text-sm text-[#52525b] leading-relaxed font-light">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

@@ -1,18 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, MapPin, Calendar, FileText, ArrowRight, Lock, Check } from "lucide-react";
+import { ShieldCheck, Calendar, Mail, FolderKanban, FileText, ArrowRight } from "lucide-react";
 import { PORTFOLIO_INFO } from "../data/portfolioData";
 
 export const AboutMe: React.FC = () => {
   const credentials = [
-    { label: "Core Discipline", value: "Calendar & Hearing Docketing" },
-    { label: "Document Systems", value: "Court Briefs & Commercial MOUs" },
-    { label: "Cloud Repositories", value: "8-Folder Google Drive & Clio" },
-    { label: "Confidentiality", value: "100% Strict NDA Protection" },
+    { label: "Calendar", value: "Scheduling, Deadlines & Buffer Time" },
+    { label: "Email", value: "Custom Labels & Urgent Triage" },
+    { label: "Documents", value: "Meeting Minutes, MOUs & Summaries" },
+    { label: "File Systems", value: "8-Folder Google Drive Hierarchy" },
   ];
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7] pattern-dots-light overflow-hidden">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7] pattern-dots-light overflow-hidden">
       <div className="max-w-4xl mx-auto text-center">
         
         {/* Section Tag */}
@@ -34,10 +34,10 @@ export const AboutMe: React.FC = () => {
           transition={{ duration: 0.45, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#09090b] tracking-tight leading-tight mb-12 font-heading max-w-3xl mx-auto"
         >
-          Bridging high-stakes legal advocacy with flawless operational precision.
+          Helping clients keep their practice organized, responsive & easy to manage.
         </motion.h2>
 
-        {/* Scroll-Driven Reveal: iOS Rounded Portrait Frame */}
+        {/* Scroll-Driven Reveal: iOS Rounded Portrait Plate */}
         <motion.div
           initial={{ opacity: 0, y: 32, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -58,17 +58,14 @@ export const AboutMe: React.FC = () => {
               <div className="absolute top-3 inset-x-3 flex items-center justify-between">
                 <span className="px-2.5 py-1 bg-[#09090b]/90 text-white text-[10px] font-mono font-bold tracking-wider uppercase rounded-lg flex items-center gap-1">
                   <ShieldCheck className="w-3 h-3 text-[#f4c8d1]" />
-                  <span>Verified Legal Assistant</span>
-                </span>
-                <span className="px-2.5 py-0.5 bg-white text-[#09090b] text-[10px] font-mono font-bold rounded-lg">
-                  {PORTFOLIO_INFO.experienceYears}
+                  <span>Virtual Legal Assistant</span>
                 </span>
               </div>
 
               {/* Bottom Name Plate */}
               <div className="absolute bottom-0 inset-x-0 p-3.5 bg-[#09090b]/90 border-t border-[#27272a] text-white text-center">
                 <p className="text-sm font-bold font-heading">{PORTFOLIO_INFO.name}</p>
-                <p className="text-[10px] text-[#a1a1aa] font-mono mt-0.5">Akure, Nigeria · Available Worldwide</p>
+                <p className="text-[10px] text-[#a1a1aa] font-mono mt-0.5">Akure, Nigeria · Available for Remote Support</p>
               </div>
             </div>
           </div>
@@ -83,17 +80,17 @@ export const AboutMe: React.FC = () => {
           className="space-y-4 text-sm sm:text-base text-[#52525b] leading-relaxed font-light max-w-2xl mx-auto mb-12"
         >
           <p>
-            With over five years of dedicated experience supporting legal professionals, I partner directly with attorneys, advocates, and commercial law teams to bring order, speed, and precision to high-volume caseloads.
+            I am a virtual assistant supporting legal practitioners and busy professionals with dependable administrative workflows.
           </p>
           <p>
-            My specialized operations cover court hearing docketing across timezones, custom Gmail labeling systems, drafting court-compliant commercial agreements & MOUs, executive minute taking, and building standardized 8-folder matter archives in Google Drive and Clio.
+            Following your specific instructions, I manage appointment schedules, add buffer time, organize inboxes with custom matter labels, prepare structured meeting minutes, and maintain logical 8-folder cloud directories so every important document is easy to locate.
           </p>
           <div className="p-4 rounded-2xl bg-[#faf9f5] border border-[#e4e4e7] text-xs sm:text-sm text-[#09090b] font-normal italic max-w-xl mx-auto">
-            “Legal practice demands discretion, punctuality, and zero margin for error. My role is to shoulder operational complexity so counsel can focus entirely on client advocacy.”
+            “Tell me what you need organized, and I’ll create a system that keeps everything accessible, structured, and under control.”
           </div>
         </motion.div>
 
-        {/* Architectural Tabular Metadata (iOS Rounded) */}
+        {/* Tabular Capabilities */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +112,7 @@ export const AboutMe: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* CTA Button (iOS Rounded) */}
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}

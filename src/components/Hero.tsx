@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = () => {
     <section id="home" className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 px-4 sm:px-6 lg:px-12 pattern-grid-blush border-b border-[#09090b]/15 overflow-hidden">
       <div className="max-w-5xl mx-auto text-center relative z-10">
         
-        {/* Status Tag (iOS Rounded) */}
+        {/* Status Tag */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = () => {
           </span>
           <span className="text-xs text-[#09090b]/25">|</span>
           <span className="text-xs font-mono text-[#09090b]/70 font-medium">
-            Akure, Nigeria & Worldwide
+            Akure, Nigeria · Remote Support
           </span>
         </motion.div>
 
@@ -36,9 +36,9 @@ export const Hero: React.FC<HeroProps> = () => {
           transition={{ duration: 0.45, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
           className="text-4xl sm:text-6xl lg:text-7xl font-bold text-[#09090b] tracking-tight leading-[1.08] mb-6 font-heading"
         >
-          Legal administration, <br />
+          Virtual legal assistance & <br />
           <span className="text-[#6b1728] font-normal">
-            calendar management & practice support.
+            practice administrative support.
           </span>
         </motion.h1>
 
@@ -49,10 +49,10 @@ export const Hero: React.FC<HeroProps> = () => {
           transition={{ duration: 0.45, delay: 0.16, ease: [0.23, 1, 0.32, 1] }}
           className="text-base sm:text-xl text-[#09090b]/80 leading-relaxed max-w-3xl mx-auto mb-10 font-light"
         >
-          I partner with attorneys, advocates, and commercial law teams to coordinate court hearing calendars, prepare court-ready agreements & MOUs, organize confidential matter files, and streamline client intake.
+          Helping legal practitioners organize schedules, manage inboxes with custom labels, maintain digital filing systems, capture clear meeting minutes, and keep matter records accessible.
         </motion.p>
 
-        {/* Action CTAs (iOS Rounded) */}
+        {/* Action CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export const Hero: React.FC<HeroProps> = () => {
             href="#contact"
             className="px-8 py-4 bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-md rounded-2xl group"
           >
-            <span>Schedule Retainer Consultation</span>
+            <span>Let’s Work Together</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-160" />
           </a>
 
@@ -71,7 +71,7 @@ export const Hero: React.FC<HeroProps> = () => {
             href="#about"
             className="px-8 py-4 bg-white text-[#09090b] border border-[#09090b]/15 text-xs font-bold uppercase tracking-wider hover:bg-white/80 active:scale-[0.97] transition-all duration-160 shadow-xs rounded-2xl"
           >
-            <span>Meet Chibuchi Ovunda</span>
+            <span>About Chibuchi Ovunda</span>
           </a>
         </motion.div>
 
@@ -84,15 +84,15 @@ export const Hero: React.FC<HeroProps> = () => {
         >
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#6b1728]" />
-            <span>100% NDA Protected</span>
+            <span>Strict Confidentiality</span>
           </span>
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#6b1728]" />
-            <span>Under 2h Response SLA</span>
+            <span>Organized Systems</span>
           </span>
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#6b1728]" />
-            <span>500+ Documents Prepared</span>
+            <span>Reliable Remote Support</span>
           </span>
         </motion.div>
 

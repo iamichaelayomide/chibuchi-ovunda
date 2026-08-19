@@ -9,6 +9,11 @@
     --pink-accent: #a83254;
     --cream: #fffaf7;
     --obsidian: #0b0b0b;
+
+    /* Emil Design Engineering Custom Easing Curves */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   html {
@@ -21,11 +26,13 @@
     color: var(--obsidian);
     font-family: "Plus Jakarta Sans", "Inter", sans-serif;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Custom subtle scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
   }
 
   ::-webkit-scrollbar-track {
@@ -52,31 +59,39 @@
   }
 
   .glass-header {
-    background: rgba(244, 200, 209, 0.85);
+    background: rgba(244, 200, 209, 0.88);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(230, 203, 209, 0.6);
   }
 
-  .glass-dark-card {
-    background: rgba(18, 18, 18, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(244, 200, 209, 0.15);
+  /* Emil Design Engineering: Tactile Press Feedback */
+  .interactive-press {
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
   }
 
-  .text-glow {
-    text-shadow: 0 0 20px rgba(200, 79, 112, 0.3);
+  .interactive-press:active {
+    transform: scale(0.97) !important;
   }
 
-  .bg-noise {
-    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
-    background-size: 24px 24px;
+  @media (hover: hover) and (pointer: fine) {
+    .interactive-hover {
+      transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

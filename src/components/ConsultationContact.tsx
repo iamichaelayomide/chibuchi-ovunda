@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Mail,
   Copy,
   Check,
   Send,
-  Sparkles,
-  ShieldCheck,
-  Clock,
-  Calendar,
-  CheckCircle2,
-  ExternalLink,
-  MessageSquare
+  ShieldCheck
 } from "lucide-react";
 import { PORTFOLIO_INFO, SERVICES_DATA } from "../data/portfolioData";
 import confetti from "canvas-confetti";
@@ -46,7 +40,7 @@ export const ConsultationContact: React.FC<ConsultationContactProps> = ({
     navigator.clipboard.writeText(PORTFOLIO_INFO.email);
     setCopied(true);
     onShowToast("Email address copied to clipboard!");
-    setTimeout(() => setCopied(false), 2500);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const toggleService = (title: string) => {
@@ -58,11 +52,10 @@ export const ConsultationContact: React.FC<ConsultationContactProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Trigger celebration confetti
     try {
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 70,
+        spread: 60,
         origin: { y: 0.6 },
         colors: ["#c84f70", "#f4c8d1", "#0b0b0b", "#a83254"]
       });
@@ -72,20 +65,19 @@ export const ConsultationContact: React.FC<ConsultationContactProps> = ({
 
     setSubmitted(true);
 
-    // Build pre-filled mailto
-    const subject = encodeURIComponent(`Legal Support Inquiry - ${formData.firm || formData.name || "Law Practice"}`);
+    const subject = encodeURIComponent(`Legal Support Inquiry - ${formData.firm || formData.name || "Legal Practice"}`);
     const body = encodeURIComponent(
       `Hello Chibuchi,
 
 My name is ${formData.name} with ${formData.firm || "my practice"}.
 
-I am interested in legal support for:
-${selectedServices.length > 0 ? selectedServices.map((s) => "• " + s).join("\n") : "• General Practice Operations"}
+I am interested in virtual legal assistance for:
+${selectedServices.length > 0 ? selectedServices.map((s) => "• " + s).join("\n") : "• General Practice Administration"}
 
-Urgency / Timeline: ${urgency}
+Timeline / Urgency: ${urgency}
 
 Project / Matter Details:
-${formData.message || "Please let me know your availability for an introductory call."}
+${formData.message || "Please let me know your availability for an introductory discussion."}
 
 Best regards,
 ${formData.name}
@@ -102,7 +94,7 @@ ${formData.email}`
     },
     {
       title: "Clear Processes & Timelines",
-      desc: "Structured workflows, transparent task milestones, and 0 surprise delays."
+      desc: "Structured workflows, transparent task milestones, and zero surprise delays."
     },
     {
       title: "High-Quality, Confidential Support",
@@ -110,7 +102,7 @@ ${formData.email}`
     },
     {
       title: "A Dedicated Practice Partner",
-      desc: "A collaborative partner who genuinely cares about your firm’s growth and peace of mind."
+      desc: "A collaborative partner who genuinely cares about your practice’s peace of mind."
     }
   ];
 
@@ -130,37 +122,38 @@ ${formData.email}`
                 Let’s work together.
               </h2>
               <p className="text-xs sm:text-sm text-[#0b0b0b]/75 leading-relaxed font-light">
-                Ready to simplify your workload, reclaim billable hours, and elevate your practice? Complete the form below to initiate an engagement.
+                Ready to organize your workload, reclaim billable hours, and elevate your practice? Complete the form below to get in touch.
               </p>
             </div>
 
             {submitted ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
                 className="p-8 rounded-2xl bg-[#fff0f3] border border-[#e6cbd1] text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-[#a83254] text-white flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-8 h-8" />
+                <div className="w-14 h-14 rounded-full bg-[#a83254] text-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <Check className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold font-serif text-[#0b0b0b] mb-2">
                   Inquiry Prepared!
                 </h3>
                 <p className="text-xs sm:text-sm text-[#0b0b0b]/80 max-w-md mx-auto mb-6 leading-relaxed">
-                  Your email client has been launched with your inquiry details. If it didn’t open automatically, feel free to send directly to:
+                  Your email client has been launched with your inquiry details. You can also email directly:
                 </p>
                 <div className="inline-flex items-center gap-3 p-3 rounded-xl bg-white border border-[#e6cbd1] text-xs font-bold text-[#0b0b0b] mb-6">
                   <span>{PORTFOLIO_INFO.email}</span>
                   <button
                     onClick={handleCopyEmail}
-                    className="p-1.5 rounded-lg bg-[#0b0b0b] text-white hover:bg-[#a83254] transition-colors"
+                    className="p-1.5 rounded-lg bg-[#0b0b0b] text-white hover:bg-[#a83254] active:scale-[0.95] transition-all duration-150"
                   >
                     <Copy className="w-3.5 h-3.5" />
                   </button>
                 </div>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="block mx-auto text-xs font-bold text-[#a83254] underline hover:opacity-80"
+                  className="block mx-auto text-xs font-bold text-[#a83254] underline hover:opacity-80 active:scale-[0.98] transition-transform"
                 >
                   Send another inquiry
                 </button>
@@ -180,7 +173,7 @@ ${formData.email}`
                           type="button"
                           key={srv.id}
                           onClick={() => toggleService(srv.title)}
-                          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all ${
+                          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide active:scale-[0.96] transition-all duration-150 ${
                             isSelected
                               ? "bg-[#0b0b0b] text-white shadow-sm"
                               : "bg-[#fff0f3] text-[#0b0b0b] hover:bg-[#feedf1] border border-[#e6cbd1]/60"
@@ -205,7 +198,7 @@ ${formData.email}`
                         type="button"
                         key={opt}
                         onClick={() => setUrgency(opt)}
-                        className={`py-2 px-3 rounded-xl text-xs font-semibold text-center border transition-all ${
+                        className={`py-2 px-3 rounded-xl text-xs font-semibold text-center border active:scale-[0.96] transition-all duration-150 ${
                           urgency === opt
                             ? "bg-[#a83254] text-white border-[#a83254] shadow-sm"
                             : "bg-white text-[#0b0b0b] border-[#e6cbd1] hover:border-[#a83254]/40"
@@ -229,7 +222,7 @@ ${formData.email}`
                       placeholder="e.g. Barrister / Attorney Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70]"
+                      className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70] transition-shadow"
                     />
                   </div>
                   <div>
@@ -238,10 +231,10 @@ ${formData.email}`
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Chambers & Partners"
+                      placeholder="e.g. Law Chambers"
                       value={formData.firm}
                       onChange={(e) => setFormData({ ...formData, firm: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70]"
+                      className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70] transition-shadow"
                     />
                   </div>
                 </div>
@@ -254,34 +247,34 @@ ${formData.email}`
                   <input
                     type="email"
                     required
-                    placeholder="attorney@lawfirm.com"
+                    placeholder="attorney@legalpractice.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70]"
+                    className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70] transition-shadow"
                   />
                 </div>
 
                 {/* Brief Message / Details */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#0b0b0b] mb-1.5">
-                    Brief Matter or Operational Needs
+                    Brief Matter or Support Requirements
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="Share brief context on documents, trial fixtures, calendar triage, or support requirements..."
+                    placeholder="Share brief context on documents, trial dates, intake triage, or administrative needs..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70]"
+                    className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70] transition-shadow"
                   />
                 </div>
 
                 {/* Submit Action */}
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#0b0b0b] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#a83254] transition-all duration-300 shadow-lg hover:shadow-xl group"
+                  className="w-full py-4 rounded-xl bg-[#0b0b0b] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#a83254] active:scale-[0.97] transition-all duration-160 shadow-lg hover:shadow-xl group"
                 >
                   <span>Submit Inquiry & Open Direct Email</span>
-                  <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                  <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-160" />
                 </button>
               </form>
             )}
@@ -294,7 +287,7 @@ ${formData.email}`
               </div>
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#a83254] hover:text-[#0b0b0b] transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#a83254] hover:text-[#0b0b0b] active:scale-[0.95] transition-all duration-150"
               >
                 {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copied ? "Copied!" : "Copy Email"}</span>
@@ -313,14 +306,14 @@ ${formData.email}`
                 What to expect when working together
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {expectations.map((exp, idx) => (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 16 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
+                    transition={{ delay: idx * 0.06, ease: [0.23, 1, 0.32, 1] }}
                     className="flex items-start gap-4 p-4 rounded-2xl bg-white/60 border border-white/60 backdrop-blur-sm"
                   >
                     <div className="w-7 h-7 rounded-full bg-[#0b0b0b] text-[#f4c8d1] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
@@ -343,10 +336,10 @@ ${formData.email}`
             <div className="mt-8 p-6 rounded-2xl bg-[#0b0b0b] text-white border border-white/10">
               <div className="flex items-center gap-2 text-[#f4c8d1] mb-2 font-bold text-xs uppercase tracking-wider">
                 <ShieldCheck className="w-4 h-4" />
-                <span>NDA & Privilege Guarantee</span>
+                <span>Confidentiality & Privilege Guarantee</span>
               </div>
               <p className="text-xs text-white/70 leading-relaxed font-light">
-                All communications, case files, and consultation inquiries are treated with strict confidentiality in accordance with professional legal ethics.
+                All communications, case files, and consultation inquiries are handled with strict non-disclosure practices in accordance with professional legal standards.
               </p>
             </div>
 

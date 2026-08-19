@@ -6,10 +6,7 @@ import {
   ShieldAlert,
   HardDrive,
   Palette,
-  FileSignature,
-  Layers,
-  CheckCircle2,
-  Sparkles
+  FileSignature
 } from "lucide-react";
 import { TOOLS_DATA } from "../data/portfolioData";
 import { ToolItem } from "../types";
@@ -33,33 +30,34 @@ export const ToolsGrid: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
             className="text-xs font-bold uppercase tracking-widest text-[#a83254] mb-3"
           >
             Software & Tech Stack
           </motion.p>
           
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
             className="text-3xl sm:text-5xl lg:text-6xl font-serif text-[#0b0b0b] tracking-tight leading-tight mb-5"
           >
             Trusted tools. <br />
-            <span className="font-serif italic font-normal text-[#a83254]">Efficient legal workflows.</span>
+            <span className="font-serif italic font-normal text-[#a83254]">Efficient workflows.</span>
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.16, ease: [0.23, 1, 0.32, 1] }}
             className="text-base sm:text-lg text-[#0b0b0b]/75 leading-relaxed font-light"
           >
-            I seamlessly integrate into your firm’s current software ecosystem, maintaining absolute data security and maximizing productivity.
+            I integrate seamlessly into your current software ecosystem, maintaining absolute data security and organized workflows.
           </motion.p>
         </div>
 
@@ -72,26 +70,26 @@ export const ToolsGrid: React.FC = () => {
             return (
               <motion.div
                 key={tool.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                whileHover={{ y: -4, scale: 1.02 }}
+                transition={{ duration: 0.35, delay: idx * 0.05, ease: [0.23, 1, 0.32, 1] }}
+                whileHover={{ y: -3 }}
                 onClick={() => setSelectedTool(tool)}
-                className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col items-center text-center group relative ${
+                className={`p-5 rounded-2xl border transition-all duration-160 active:scale-[0.96] cursor-pointer flex flex-col items-center text-center group relative ${
                   isSelected
-                    ? "bg-[#0b0b0b] text-white border-[#0b0b0b] shadow-xl"
-                    : "bg-white/80 text-[#0b0b0b] border-[#e6cbd1] hover:border-[#a83254] hover:shadow-md"
+                    ? "bg-[#0b0b0b] text-white border-[#0b0b0b] shadow-lg"
+                    : "bg-white/80 text-[#0b0b0b] border-[#e6cbd1] hover:border-[#a83254] hover:shadow-sm"
                 }`}
               >
                 <div
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-3 transition-transform group-hover:scale-110 ${
+                  className={`w-13 h-13 rounded-2xl flex items-center justify-center mb-3 transition-transform duration-160 group-hover:scale-105 ${
                     isSelected
                       ? "bg-[#a83254] text-white"
                       : "bg-[#fff0f3] text-[#a83254]"
                   }`}
                 >
-                  <Icon className="w-7 h-7" />
+                  <Icon className="w-6 h-6" />
                 </div>
 
                 <h3 className="text-sm font-bold tracking-tight mb-1 font-serif">
@@ -116,14 +114,14 @@ export const ToolsGrid: React.FC = () => {
         {selectedTool && (
           <motion.div
             key={selectedTool.name}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="max-w-3xl mx-auto p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#feedf1] via-white to-[#feedf1] border border-[#e6cbd1] shadow-md flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left"
+            initial={{ opacity: 0, scale: 0.98, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
+            className="max-w-3xl mx-auto p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#feedf1] via-white to-[#feedf1] border border-[#e6cbd1] shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left"
           >
-            <div className="w-16 h-16 rounded-2xl bg-[#0b0b0b] text-[#f4c8d1] flex items-center justify-center shrink-0 shadow-md">
+            <div className="w-14 h-14 rounded-2xl bg-[#0b0b0b] text-[#f4c8d1] flex items-center justify-center shrink-0 shadow-md">
               {React.createElement(iconMap[selectedTool.icon] || FileSpreadsheet, {
-                className: "w-8 h-8",
+                className: "w-7 h-7",
               })}
             </div>
             <div>

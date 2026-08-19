@@ -12,7 +12,6 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { SERVICES_DATA } from "../data/portfolioData";
-import { ServiceItem } from "../types";
 
 interface ServicesProps {
   onSelectService: (serviceTitle: string) => void;
@@ -40,19 +39,20 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
             className="text-xs font-bold uppercase tracking-widest text-[#a83254] mb-3"
           >
             How I Can Help
           </motion.p>
           
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
             className="text-3xl sm:text-5xl lg:text-6xl font-serif text-[#0b0b0b] tracking-tight leading-tight mb-5"
           >
             Strategic support. <br />
@@ -60,13 +60,13 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.16, ease: [0.23, 1, 0.32, 1] }}
             className="text-base sm:text-lg text-[#0b0b0b]/75 leading-relaxed font-light"
           >
-            I provide dependable legal administrative and operational support so you can focus on practicing law, serving clients, and growing your firm.
+            I provide dependable legal administrative and operational support so you can focus on practicing law and serving your clients.
           </motion.p>
         </div>
 
@@ -79,26 +79,26 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             return (
               <motion.article
                 key={service.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -6 }}
-                className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-[#e6cbd1] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:bg-white hover:border-[#a83254]/40 group relative"
+                transition={{ duration: 0.45, delay: index * 0.06, ease: [0.23, 1, 0.32, 1] }}
+                whileHover={{ y: -4 }}
+                className="bg-white/75 backdrop-blur-sm rounded-2xl p-6 border border-[#e6cbd1] flex flex-col justify-between transition-all duration-200 hover:shadow-lg hover:bg-white hover:border-[#a83254]/40 group relative"
               >
                 <div>
                   {/* Top Badge & Number */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-full bg-[#f4c8d1] text-[#0b0b0b] flex items-center justify-center font-serif text-lg font-bold group-hover:bg-[#0b0b0b] group-hover:text-[#f4c8d1] transition-colors shadow-xs">
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-11 h-11 rounded-full bg-[#f4c8d1] text-[#0b0b0b] flex items-center justify-center font-serif text-base font-bold group-hover:bg-[#0b0b0b] group-hover:text-[#f4c8d1] transition-colors duration-200 shadow-xs">
                       {service.number}
                     </div>
-                    <div className="p-2 rounded-xl bg-[#fff0f3] text-[#a83254] group-hover:scale-110 transition-transform">
+                    <div className="p-2 rounded-xl bg-[#fff0f3] text-[#a83254] group-hover:scale-105 transition-transform duration-200">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold font-serif text-[#0b0b0b] mb-2.5 group-hover:text-[#a83254] transition-colors">
+                  <h3 className="text-lg font-bold font-serif text-[#0b0b0b] mb-2 group-hover:text-[#a83254] transition-colors duration-150">
                     {service.title}
                   </h3>
 
@@ -111,7 +111,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   <div className="pt-2 border-t border-[#e6cbd1]/40">
                     <button
                       onClick={() => toggleExpand(service.id)}
-                      className="w-full flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-[#a83254] py-1.5 focus:outline-none hover:opacity-80 transition-opacity"
+                      className="w-full flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-[#a83254] py-1.5 focus:outline-none hover:opacity-80 active:scale-[0.98] transition-all duration-150"
                     >
                       <span>{isExpanded ? "Hide Details" : "Key Deliverables"}</span>
                       <ChevronDown
@@ -127,7 +127,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.25 }}
+                          transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
                           className="overflow-hidden pt-2"
                         >
                           <ul className="space-y-1.5 mb-3">
@@ -155,10 +155,10 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 <div className="mt-6 pt-3">
                   <button
                     onClick={() => onSelectService(service.title)}
-                    className="w-full py-2.5 px-3 rounded-xl bg-[#0b0b0b]/5 text-[#0b0b0b] text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 group-hover:bg-[#0b0b0b] group-hover:text-white transition-all duration-300"
+                    className="w-full py-2.5 px-3 rounded-xl bg-[#0b0b0b]/5 text-[#0b0b0b] text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 active:scale-[0.97] group-hover:bg-[#0b0b0b] group-hover:text-white transition-all duration-160"
                   >
                     <span>Request Service</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-160" />
                   </button>
                 </div>
               </motion.article>
@@ -170,10 +170,10 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
         <div className="mt-14 text-center">
           <a
             href="#work"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#0b0b0b] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#a83254] transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 group"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#0b0b0b] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#a83254] active:scale-[0.97] transition-all duration-160 shadow-md hover:shadow-lg group"
           >
             <span>Explore Selected Work Samples</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-160" />
           </a>
         </div>
 

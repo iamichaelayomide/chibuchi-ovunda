@@ -1,5 +1,5 @@
 import React from "react";
-import { Scale, Heart, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { PORTFOLIO_INFO } from "../data/portfolioData";
 
 export const Footer: React.FC = () => {
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
             {PORTFOLIO_INFO.location}
           </p>
           <p className="text-[10px] text-white/50">
-            Strict Attorney-Client Discretion & Confidentiality Enforced
+            Strict Confidentiality & Discretion Enforced
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
         <div>
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors text-xs font-semibold"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 active:scale-[0.95] text-white transition-all duration-150 text-xs font-semibold"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

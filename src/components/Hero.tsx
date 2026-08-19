@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Clock, Award, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, Award, CheckCircle2 } from "lucide-react";
 import { PORTFOLIO_INFO } from "../data/portfolioData";
 
 interface HeroProps {
@@ -24,9 +24,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
           
           {/* Status Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-[#0b0b0b]/10 text-xs font-semibold text-[#0b0b0b] shadow-xs w-fit mb-6"
           >
             <span className="relative flex h-2 w-2">
@@ -40,9 +40,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
 
           {/* Large Headline */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
           >
             <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.92] text-[#0b0b0b] mb-4 font-normal">
               Chibuchi <br />
@@ -52,20 +52,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
 
           {/* Subtitle */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.16, ease: [0.23, 1, 0.32, 1] }}
           >
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-[#0b0b0b]/90 mb-5 font-serif">
-              Virtual Legal Assistant & Operations Partner
+              Virtual Legal Assistant & Practice Operations
             </h2>
           </motion.div>
 
           {/* Bio Description */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.24, ease: [0.23, 1, 0.32, 1] }}
             className="text-base sm:text-lg text-[#0b0b0b]/80 max-w-xl leading-relaxed mb-8 font-light"
           >
             {PORTFOLIO_INFO.bio}
@@ -73,25 +73,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
 
           {/* Action CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.32, ease: [0.23, 1, 0.32, 1] }}
             className="flex flex-wrap items-center gap-4 sm:gap-6 mb-10"
           >
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center justify-between gap-4 px-7 py-4 rounded-xl bg-[#0b0b0b] text-white text-sm font-bold tracking-wider uppercase hover:bg-[#a83254] transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 group min-w-[220px]"
+              className="inline-flex items-center justify-between gap-4 px-7 py-4 rounded-xl bg-[#0b0b0b] text-white text-sm font-bold tracking-wider uppercase hover:bg-[#a83254] active:scale-[0.97] transition-all duration-160 shadow-md hover:shadow-lg group min-w-[220px]"
             >
               <span>Let’s Work Together</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-160" />
             </button>
 
             <a
               href="#work"
-              className="inline-flex items-center gap-2 px-5 py-4 rounded-xl text-sm font-bold text-[#0b0b0b] border-b-2 border-[#0b0b0b] hover:text-[#a83254] hover:border-[#a83254] transition-colors group"
+              className="inline-flex items-center gap-2 px-5 py-4 rounded-xl text-sm font-bold text-[#0b0b0b] border-b-2 border-[#0b0b0b] hover:text-[#a83254] hover:border-[#a83254] active:scale-[0.98] transition-all duration-160 group"
             >
               <span>Explore Selected Work</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-160" />
             </a>
           </motion.div>
 
@@ -99,7 +99,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap items-center gap-6 pt-6 border-t border-[#0b0b0b]/10 text-xs font-semibold text-[#0b0b0b]/75"
           >
             <div className="flex items-center gap-1.5">
@@ -122,9 +122,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
         <div className="lg:col-span-5 relative flex justify-center">
           
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 25 }}
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className="relative w-full max-w-[420px] sm:max-w-[460px]"
           >
             {/* Background Geometric Accent */}
@@ -136,18 +136,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
               <img
                 src="/images/hero_portrait.webp"
                 alt="Chibuchi Ovunda — Virtual Legal Assistant"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-out"
                 loading="eager"
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
 
               {/* Bottom Tag on Image */}
               <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-[#0b0b0b]/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-between">
                 <div>
                   <p className="text-xs font-serif font-semibold">Chibuchi Ovunda</p>
-                  <p className="text-[10px] text-white/70">Legal Administration Specialist</p>
+                  <p className="text-[10px] text-white/70">Akure · Remote Worldwide</p>
                 </div>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#f4c8d1] text-[#0b0b0b] font-bold tracking-wider uppercase">
                   Verified
@@ -157,12 +157,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
 
             {/* Floating Badge Top Left: Confidentiality Seal */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -top-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-[#e6cbd1] flex items-center gap-3 animate-float"
+              transition={{ duration: 0.5, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+              className="absolute -top-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-[#e6cbd1] flex items-center gap-3"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#f4c8d1] text-[#a83254] flex items-center justify-center font-bold">
+              <div className="w-9 h-9 rounded-xl bg-[#f4c8d1] text-[#a83254] flex items-center justify-center font-bold">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
@@ -173,12 +173,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
 
             {/* Floating Badge Bottom Right: Experience Pill */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.5, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
               className="absolute -bottom-4 -right-4 sm:-right-6 bg-[#0b0b0b] text-white p-3.5 rounded-2xl shadow-2xl border border-white/15 flex items-center gap-3"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#a83254] text-white flex items-center justify-center font-bold">
+              <div className="w-9 h-9 rounded-xl bg-[#a83254] text-white flex items-center justify-center font-bold">
                 <CheckCircle2 className="w-5 h-5" />
               </div>
               <div>

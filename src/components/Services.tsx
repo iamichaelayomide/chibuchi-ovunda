@@ -74,7 +74,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
                     </div>
                   </div>
 
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-150 ${
+                  <div className={`w-7 h-7 rounded-none flex items-center justify-center shrink-0 transition-all duration-150 ${
                     isActive ? "bg-[#09090b] text-white" : "bg-transparent text-[#71717a] group-hover:bg-[#e4e4e7]"
                   }`}>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -93,7 +93,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
-                className="bg-white rounded-3xl p-8 sm:p-12 border border-[#e4e4e7] shadow-sm flex flex-col justify-between"
+                className="bg-white rounded-none p-8 sm:p-12 border border-[#e4e4e7] shadow-sm flex flex-col justify-between"
               >
                 <div>
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-[#e4e4e7]">
@@ -136,7 +136,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
                   <a
                     href="#contact"
                     onClick={() => onSelectServiceForConsult(activeService.title)}
-                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-6 py-3 rounded-none bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 flex items-center justify-center gap-2"
                   >
                     <span>Request {activeService.title}</span>
                     <ArrowRight className="w-3.5 h-3.5" />

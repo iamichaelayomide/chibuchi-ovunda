@@ -106,11 +106,11 @@ ${formData.email}`
         </p>
 
         {/* Center-Aligned Form Card */}
-        <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-[#09090b]/15 shadow-xl text-left">
+        <div className="bg-white/95 backdrop-blur-md rounded-none p-8 sm:p-12 border border-[#09090b]/15 shadow-xl text-left">
           
           {submitted ? (
             <div className="text-center py-8">
-              <div className="w-12 h-12 rounded-full bg-[#09090b] text-[#f5cad5] flex items-center justify-center mx-auto mb-4 font-heading font-bold text-lg">
+              <div className="w-12 h-12 rounded-none bg-[#09090b] text-[#f5cad5] flex items-center justify-center mx-auto mb-4 font-heading font-bold text-lg">
                 ✓
               </div>
               <h3 className="text-xl font-bold text-[#09090b] mb-2 font-heading">
@@ -119,11 +119,11 @@ ${formData.email}`
               <p className="text-xs sm:text-sm text-[#52525b] max-w-md mx-auto mb-6 leading-relaxed font-light">
                 Your email client has been opened with your inquiry details. You can also contact directly anytime:
               </p>
-              <div className="inline-flex items-center gap-3 p-3 rounded-xl bg-[#faf9f5] border border-[#e4e4e7] text-xs font-bold text-[#09090b] mb-6">
+              <div className="inline-flex items-center gap-3 p-3 rounded-none bg-[#faf9f5] border border-[#e4e4e7] text-xs font-bold text-[#09090b] mb-6">
                 <span>{PORTFOLIO_INFO.email}</span>
                 <button
                   onClick={handleCopyEmail}
-                  className="p-1.5 rounded-lg bg-[#09090b] text-white hover:bg-[#6b1728] active:scale-[0.95] transition-all"
+                  className="p-1.5 rounded-none bg-[#09090b] text-white hover:bg-[#6b1728] active:scale-[0.95] transition-all"
                   aria-label="Copy email"
                 >
                   <Copy className="w-3.5 h-3.5" />
@@ -148,7 +148,7 @@ ${formData.email}`
                 <button
                   type="button"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="w-full px-4 py-3.5 rounded-xl border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-[#09090b] transition-all"
+                  className="w-full px-4 py-3.5 rounded-none border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-[#09090b] transition-all"
                 >
                   <span className="font-semibold text-[#09090b]">{selectedService}</span>
                   <ChevronDown className={`w-4 h-4 text-[#71717a] transition-transform duration-150 ${dropdownOpen ? "rotate-180" : ""}`} />
@@ -161,7 +161,7 @@ ${formData.email}`
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
-                      className="absolute top-full left-0 right-0 mt-1.5 bg-white border border-[#e4e4e7] rounded-2xl shadow-xl z-30 overflow-hidden py-1.5 divide-y divide-[#e4e4e7]/60"
+                      className="absolute top-full left-0 right-0 mt-1.5 bg-white border border-[#e4e4e7] rounded-none shadow-xl z-30 overflow-hidden py-1.5 divide-y divide-[#e4e4e7]/60"
                     >
                       {serviceOptions.map((opt) => (
                         <button
@@ -201,7 +201,7 @@ ${formData.email}`
                     placeholder="e.g. Barrister / Attorney Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b]"
+                    className="w-full px-4 py-3 rounded-none border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b]"
                   />
                 </div>
                 <div>
@@ -213,7 +213,7 @@ ${formData.email}`
                     placeholder="e.g. Legal Chambers"
                     value={formData.firm}
                     onChange={(e) => setFormData({ ...formData, firm: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b]"
+                    className="w-full px-4 py-3 rounded-none border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b]"
                   />
                 </div>
               </div>
@@ -229,7 +229,7 @@ ${formData.email}`
                   placeholder="counsel@legalpractice.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b]"
+                  className="w-full px-4 py-3 rounded-none border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b]"
                 />
               </div>
 
@@ -243,14 +243,14 @@ ${formData.email}`
                   placeholder="Briefly describe matters, calendar scheduling, or brief formatting needs..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b]"
+                  className="w-full px-4 py-3 rounded-none border border-[#e4e4e7] bg-[#faf9f5] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b]"
                 />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-4 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all shadow-md group"
+                className="w-full py-4 rounded-none bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all shadow-md group"
               >
                 <span>Submit Inquiry & Open Email Client</span>
                 <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

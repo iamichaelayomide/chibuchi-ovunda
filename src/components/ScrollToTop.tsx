@@ -31,7 +31,7 @@ export const ScrollToTop: React.FC = () => {
           exit={{ opacity: 0, scale: 0.92, y: 8 }}
           transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#0b0b0b] text-white flex items-center justify-center shadow-xl hover:bg-[#a83254] active:scale-[0.93] transition-all duration-150 group focus:outline-none"
+          className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-none bg-[#0b0b0b] text-white flex items-center justify-center shadow-xl hover:bg-[#a83254] active:scale-[0.93] transition-all duration-150 group focus:outline-none"
           aria-label="Scroll to top"
         >
           {/* Circular Progress Ring */}

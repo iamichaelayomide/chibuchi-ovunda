@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
         
         {/* Left: Brand & Title */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-[#6b1728] text-white flex items-center justify-center  font-bold text-xs">
+          <div className="w-8 h-8 rounded-none bg-[#6b1728] text-white flex items-center justify-center  font-bold text-xs">
             CO
           </div>
           <div>
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
         <div>
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 active:scale-[0.95] text-white transition-all duration-150 text-xs font-semibold"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-none bg-white/10 hover:bg-white/20 active:scale-[0.95] text-white transition-all duration-150 text-xs font-semibold"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

@@ -33,9 +33,9 @@ export const ToolsGrid: React.FC = () => {
             03 / LEGAL TECH STACK
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#09090b] tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-[#09090b] tracking-tight leading-tight mb-5">
             Software & systems, <br />
-            <span className="font-serif italic font-normal text-[#6b1728]">seamlessly integrated.</span>
+            <span className=" italic font-normal text-[#6b1728]">seamlessly integrated.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
@@ -73,7 +73,7 @@ export const ToolsGrid: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-xs sm:text-sm font-bold font-serif leading-tight">
+                    <h3 className="text-xs sm:text-sm font-bold  leading-tight">
                       {tool.name}
                     </h3>
                     <p className={`text-[10px] font-mono mt-0.5 ${isSelected ? "text-white/60" : "text-[#71717a]"}`}>
@@ -93,7 +93,7 @@ export const ToolsGrid: React.FC = () => {
                   {selectedTool.categoryLabel}
                 </span>
                 <span className="text-xs text-[#d4d4d8]">/</span>
-                <h4 className="text-xl font-serif font-bold text-[#09090b]">
+                <h4 className="text-xl  font-bold text-[#09090b]">
                   {selectedTool.name}
                 </h4>
                 <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-[#faf9f5] border border-[#e4e4e7] text-[#09090b]">

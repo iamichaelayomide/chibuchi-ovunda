@@ -16,9 +16,9 @@ export const TrustPillars: React.FC = () => {
             04 / PRACTICE COMMITMENT
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-white tracking-tight leading-tight mb-5">
             Four pillars of <br />
-            <span className="font-serif italic font-normal text-[#f4c8d1]">operational integrity.</span>
+            <span className=" italic font-normal text-[#f4c8d1]">operational integrity.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-white/70 leading-relaxed font-light">
@@ -44,13 +44,13 @@ export const TrustPillars: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-8">
-                    <span className="text-3xl sm:text-4xl font-serif font-bold text-[#f4c8d1]">
+                    <span className="text-3xl sm:text-4xl  font-bold text-[#f4c8d1]">
                       {pillar.number}
                     </span>
                     <Icon className="w-5 h-5 text-white/40 group-hover:text-[#f4c8d1] transition-colors duration-150" />
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold font-serif text-white mb-3 group-hover:text-[#f4c8d1] transition-colors duration-150">
+                  <h3 className="text-lg sm:text-xl font-bold  text-white mb-3 group-hover:text-[#f4c8d1] transition-colors duration-150">
                     {pillar.title}
                   </h3>
 

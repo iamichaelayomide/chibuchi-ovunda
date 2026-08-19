@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --bg-page: #fbfbfa;
+    --bg-page: #faf9f5;
     --bg-surface: #ffffff;
     --bg-surface-elevated: #f4f4f5;
     
@@ -18,8 +18,6 @@
     --accent-bordeaux: #6b1728;
     --accent-bordeaux-hover: #54111f;
     --accent-bordeaux-light: #fbebee;
-    
-    --accent-gold: #9e7b47;
     
     --dark-bg: #09090b;
     --dark-surface: #121215;
@@ -39,13 +37,13 @@
   body {
     background-color: var(--bg-page);
     color: var(--text-primary);
-    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Work Sans", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Solid, minimal scrollbar */
+  /* Minimal clean scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
@@ -65,34 +63,16 @@
 }
 
 @layer utilities {
-  .font-serif {
-    font-family: "Playfair Display", Georgia, Cambria, serif;
+  .font-heading {
+    font-family: "Work Sans", sans-serif;
+    letter-spacing: -0.025em;
   }
 
-  .font-display {
-    font-family: "Cinzel", "Playfair Display", Georgia, serif;
+  .font-mono-tag {
+    font-family: "JetBrains Mono", monospace;
   }
 
-  /* Solid architectural headers */
-  .solid-header {
-    background: rgba(251, 251, 250, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .solid-card {
-    background: #ffffff;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
-  }
-
-  .solid-card-dark {
-    background: #121215;
-    border: 1px solid var(--dark-border);
-  }
-
-  /* Tactile Physical Press Feedback (Emil Kowalski Design Engineering) */
+  /* Tactile Physical Press Feedback */
   .interactive-press {
     transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
   }

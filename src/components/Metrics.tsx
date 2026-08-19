@@ -18,15 +18,15 @@ export const Metrics: React.FC = () => {
             >
               <div className="flex items-baseline gap-0.5 mb-1.5">
                 {item.prefix && (
-                  <span className="text-xl sm:text-2xl font-serif text-[#6b1728] font-bold">
+                  <span className="text-xl sm:text-2xl  text-[#6b1728] font-bold">
                     {item.prefix}
                   </span>
                 )}
-                <span className="text-3xl sm:text-5xl font-serif font-bold text-[#09090b] tracking-tight">
+                <span className="text-3xl sm:text-5xl  font-bold text-[#09090b] tracking-tight">
                   {item.value}
                 </span>
                 {item.suffix && (
-                  <span className="text-xl sm:text-2xl font-serif text-[#6b1728] font-bold">
+                  <span className="text-xl sm:text-2xl  text-[#6b1728] font-bold">
                     {item.suffix}
                   </span>
                 )}

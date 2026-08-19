@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { MarqueeTicker } from "./components/MarqueeTicker";
 import { Metrics } from "./components/Metrics";
+import { AboutMe } from "./components/AboutMe";
 import { ProblemSolutionHowItWorks } from "./components/ProblemSolutionHowItWorks";
 import { Services } from "./components/Services";
 import { WorkShowcase } from "./components/WorkShowcase";
@@ -41,7 +42,7 @@ export function App() {
       {/* Main Single-Offer Landing Progression */}
       <main className="flex-1">
         
-        {/* 01: Hero (Outcome, Audience, Proof Signals, Direct CTA) */}
+        {/* 01: Hero (Clean Text-Focused, Work Sans Typography, Badges Removed) */}
         <Hero onSelectServiceForConsult={handleSelectService} />
 
         {/* 02: Credibility Ticker Strip */}
@@ -50,32 +51,35 @@ export function App() {
         {/* 03: Verified Proof Metrics Bar */}
         <Metrics />
 
-        {/* 04: The Problem -> Solution & 3-Step Onboarding */}
+        {/* 04: Dedicated About Chibuchi Ovunda Section (With Portrait & Bio) */}
+        <AboutMe />
+
+        {/* 05: The Problem -> Solution & 3-Step Onboarding */}
         <ProblemSolutionHowItWorks />
 
-        {/* 05: Core Practice Services & Deliverables Catalog */}
+        {/* 06: Core Practice Services (With Calendar Management Front & Center) */}
         <Services onSelectServiceForConsult={handleSelectService} />
 
-        {/* 06: Verified Work Showcase & Case Proof */}
+        {/* 07: Verified Work Showcase & Case Proof */}
         <WorkShowcase />
 
-        {/* 07: Tech Stack & System Integration */}
+        {/* 08: Tech Stack & System Integration */}
         <ToolsGrid />
 
-        {/* 08: Trust & Confidentiality Architecture */}
+        {/* 09: Trust & Confidentiality Architecture */}
         <TrustPillars />
 
-        {/* 09: Objection Handling FAQ */}
+        {/* 10: Objection Handling FAQ */}
         <FAQ />
 
-        {/* 10: Final Direct Consultation Builder */}
+        {/* 11: Final Direct Consultation Builder */}
         <ConsultationContact
           preselectedService={selectedServiceForForm}
           onShowToast={showToast}
         />
       </main>
 
-      {/* 11: Editorial Footer */}
+      {/* 12: Editorial Footer */}
       <Footer />
 
       {/* Floating Utilities */}

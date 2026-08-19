@@ -13,11 +13,11 @@ export const Footer: React.FC = () => {
         
         {/* Left: Brand & Title */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-[#6b1728] text-white flex items-center justify-center font-serif font-bold text-xs">
+          <div className="w-8 h-8 rounded-lg bg-[#6b1728] text-white flex items-center justify-center  font-bold text-xs">
             CO
           </div>
           <div>
-            <p className="text-white font-serif font-semibold text-xs">
+            <p className="text-white  font-semibold text-xs">
               © {new Date().getFullYear()} {PORTFOLIO_INFO.name}. All rights reserved.
             </p>
             <p className="text-[10px] text-white/50">

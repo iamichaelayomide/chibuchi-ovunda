@@ -108,7 +108,7 @@ ${formData.email}`
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] block mb-2">
                 05 / DIRECT INQUIRY
               </span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#09090b] tracking-tight mb-2.5">
+              <h2 className="text-3xl sm:text-4xl  font-bold text-[#09090b] tracking-tight mb-2.5">
                 Initiate a consultation.
               </h2>
               <p className="text-xs sm:text-sm text-[#52525b] leading-relaxed font-light">
@@ -126,7 +126,7 @@ ${formData.email}`
                 <div className="w-12 h-12 rounded-full bg-[#09090b] text-white flex items-center justify-center mx-auto mb-4 shadow-xs">
                   <Check className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold font-serif text-[#09090b] mb-2">
+                <h3 className="text-xl font-bold  text-[#09090b] mb-2">
                   Inquiry Prepared
                 </h3>
                 <p className="text-xs sm:text-sm text-[#52525b] max-w-md mx-auto mb-6 leading-relaxed font-light">
@@ -292,7 +292,7 @@ ${formData.email}`
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] block mb-2">
                 PRACTICE STANDARD
               </span>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#09090b] tracking-tight mb-6">
+              <h3 className="text-2xl sm:text-3xl  font-bold text-[#09090b] tracking-tight mb-6">
                 What to expect from every engagement
               </h3>
 
@@ -306,7 +306,7 @@ ${formData.email}`
                       ✓
                     </div>
                     <div>
-                      <h4 className="text-xs sm:text-sm font-bold font-serif text-[#09090b] mb-0.5">
+                      <h4 className="text-xs sm:text-sm font-bold  text-[#09090b] mb-0.5">
                         {exp.title}
                       </h4>
                       <p className="text-xs text-[#52525b] leading-relaxed font-light">

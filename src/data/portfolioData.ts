@@ -4,7 +4,7 @@ export const PORTFOLIO_INFO = {
   name: "Chibuchi Ovunda",
   title: "Virtual Legal Assistant",
   subtitle: "Legal Practice Operations & Administrative Support",
-  bio: "Supporting attorneys, advocates, and commercial law practices with structured case file architecture, court-compliant document preparation, client intake coordination, and dependable practice operations.",
+  bio: "Supporting attorneys, advocates, and commercial law practices with calendar coordination, structured case file architecture, court-compliant document formatting, client intake systems, and reliable practice operations.",
   email: "ovundachibuchi01@gmail.com",
   location: "Akure, Nigeria · Available Worldwide",
   availabilityStatus: "Available for Retainers & Engagements",
@@ -13,29 +13,45 @@ export const PORTFOLIO_INFO = {
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: "legal-admin",
+    id: "calendar-mgmt",
     number: "01",
+    title: "Calendar & Hearing Schedule Management",
+    shortDesc: "Court docketing, hearing dates, client consultations, and cross-timezone scheduling.",
+    fullDesc: "Complete schedule orchestration for busy practitioners. Keep court appearances docketed, client consultations organized across timezones, and statutory deadline reminders triggered well ahead of time.",
+    deliverables: [
+      "Court hearing dates and statutory limitation docketing",
+      "Client consultation booking and virtual conference setup",
+      "Deposition, trial prep, and filing calendar coordination",
+      "Cross-timezone appointment and diary synchronization",
+      "Pre-conference briefing packet preparation"
+    ],
+    turnaround: "Real-Time Docket Updates",
+    iconName: "Calendar"
+  },
+  {
+    id: "legal-admin",
+    number: "02",
     title: "Case File & Matter Administration",
     shortDesc: "Folder architecture, pleadings cataloging, docket tracking, and case indexing.",
-    fullDesc: "Complete administrative management for litigation and commercial practices. Every matter folder is standardized, pleadings indexed chronologically, and court dockets tracked accurately.",
+    fullDesc: "Complete administrative management for litigation and commercial practices. Every matter folder is standardized, pleadings indexed chronologically, and client records organized.",
     deliverables: [
       "Standardized cloud case folder hierarchy",
-      "Pleadings, exhibits, and motion indexing",
-      "Conflict check logging and party records",
-      "Statutory deadlines and court docket tracking",
-      "Matter disbursement and billable hours logging"
+      "Pleadings, exhibits, motions, and orders indexing",
+      "Conflict check logging and party contact records",
+      "Matter disbursement and billable hours logging",
+      "Secure repository access permission controls"
     ],
     turnaround: "Same-Day to 24h Delivery",
     iconName: "FolderKanban"
   },
   {
     id: "document-support",
-    number: "02",
+    number: "03",
     title: "Legal Drafting & Document Formatting",
     shortDesc: "Court-compliant formatting, agreements, MOUs, notices, and legal templates.",
     fullDesc: "Court-compliant legal document preparation. From commercial agreements and MOUs to trial briefs, every draft follows exact jurisdictional formatting conventions, heading styles, and citation standards.",
     deliverables: [
-      "Court-ready brief and motion formatting",
+      "Court-ready brief, motion, and affidavit formatting",
       "Memorandum of Understanding (MOU) drafting",
       "Table of Authorities and Table of Contents compilation",
       "Redaction of confidential and privileged PII",
@@ -46,13 +62,13 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: "client-communication",
-    number: "03",
+    number: "04",
     title: "Client Intake & Correspondence",
     shortDesc: "Intake database logging, hearing notifications, and structured correspondence.",
     fullDesc: "Ensure prospective clients and active matters receive timely communication. Includes structured intake triage, automated response logging, conference scheduling, and client status updates.",
     deliverables: [
       "Inbox management and matter classification",
-      "Client onboarding intake forms and databases",
+      "Client onboarding intake forms and live databases",
       "Hearing and conference confirmation notices",
       "Inter-counsel correspondence coordination",
       "Post-consultation summary distribution"
@@ -62,7 +78,7 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: "research-assistance",
-    number: "04",
+    number: "05",
     title: "Statutory & Case Law Research",
     shortDesc: "Synthesized case precedents, legislative provisions, and factual research summaries.",
     fullDesc: "Thorough legal and factual compilation. Receive structured research memorandums, statutory provisions, and judicial precedents formatted clearly for immediate review by senior counsel.",
@@ -78,10 +94,10 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: "operational-support",
-    number: "05",
+    number: "06",
     title: "Practice Operations & Systems",
     shortDesc: "Cloud file workflows, SOP documentation, and practice task management.",
-    fullDesc: "Systemize internal firm workflows. From cloud document repository structure and automated intake pipelines to standard operating procedures (SOPs), ensuring day-to-day operations run predictably.",
+    fullDesc: "Systemize internal firm workflows. From cloud document repository structure and automated intake pipelines to standard operating procedures (SOPs), ensuring day-to-day operations run smoothly.",
     deliverables: [
       "Intake logging and form response automation",
       "Standard Operating Procedure (SOP) manuals",
@@ -95,6 +111,20 @@ export const SERVICES_DATA: ServiceItem[] = [
 ];
 
 export const WORK_SAMPLES: WorkSample[] = [
+  {
+    id: "calendar-mgmt",
+    title: "Client Consultation & Calendar Management",
+    category: "calendar",
+    categoryLabel: "Calendar & Notes",
+    shortDesc: "Executive consultation summaries, calendar coordination, and action item tracking.",
+    fullDesc: "Structured client consultation summary and calendar management documenting partnership negotiations (Mr. Tunde Adebayo), key identified legal issues (revenue allocation, liability protection), scheduled follow-up conferences, and agreed action items.",
+    challenge: "Managing overlapping attorney consultation calendars and extracting actionable legal issues and agreed covenants from verbal meetings.",
+    solution: "Scheduled virtual conferences, coordinated calendar slots, and drafted structured executive summaries with distinct sections: Overview of Discussion, Key Issues, and Agreed Terms.",
+    impact: "Attorneys save hours of administrative review time and retain precise, privileged records for draft preparation.",
+    toolsUsed: ["Google Calendar", "Google Meet", "Google Docs", "Executive Framework"],
+    imageSrc: "/images/work_calendar_mgmt.webp",
+    isRedacted: true
+  },
   {
     id: "doc-org",
     title: "Matter File Systems & Organization",
@@ -136,20 +166,6 @@ export const WORK_SAMPLES: WorkSample[] = [
     toolsUsed: ["Google Sheets", "Google Forms", "Gmail", "Intake Automation"],
     imageSrc: "/images/work_email_mgmt.webp",
     isRedacted: true
-  },
-  {
-    id: "calendar-mgmt",
-    title: "Client Consultation & Meeting Record",
-    category: "calendar",
-    categoryLabel: "Meeting Records",
-    shortDesc: "Executive consultation summaries documenting matter discussions, legal issues, and next steps.",
-    fullDesc: "Structured client consultation summary documenting partnership negotiations (Mr. Tunde Adebayo), key identified legal issues (revenue allocation, liability protection), and agreed action items.",
-    challenge: "Extracting actionable legal issues and agreed covenants from extensive verbal client consultations.",
-    solution: "Drafted structured executive summaries with distinct sections: Overview of Discussion, Key Issues, and Agreed Terms.",
-    impact: "Attorneys save hours of review time and retain precise, privileged records for draft preparation.",
-    toolsUsed: ["Google Docs", "Executive Summary Framework", "Legal Minutes", "Google Meet"],
-    imageSrc: "/images/work_calendar_mgmt.webp",
-    isRedacted: true
   }
 ];
 
@@ -167,7 +183,7 @@ export const TOOLS_DATA: ToolItem[] = [
     category: "cloud",
     categoryLabel: "Cloud Suite",
     proficiency: "Expert",
-    description: "Collaborative Docs, secure Google Drive matter repositories, Forms client intake, and Google Meet scheduling.",
+    description: "Google Calendar scheduling, Docs collaboration, Drive matter repositories, Forms client intake, and Google Meet.",
     icon: "FolderGit2"
   },
   {
@@ -220,7 +236,7 @@ export const TRUST_PILLARS: TrustPillar[] = [
   {
     number: "03",
     title: "Docket & Deadline Reliability",
-    description: "Dependable execution to meet filing deadlines, organize matter files ahead of schedule, and anticipate administrative bottlenecks before they emerge.",
+    description: "Dependable execution to meet filing deadlines, coordinate court hearing calendars, and anticipate administrative bottlenecks.",
     highlight: "Zero Missed Statutory Deadlines"
   },
   {

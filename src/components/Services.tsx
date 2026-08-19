@@ -38,9 +38,9 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
             01 / CORE DELIVERABLES
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#09090b] tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-[#09090b] tracking-tight leading-tight mb-5">
             Legal practice capabilities, <br />
-            <span className="font-serif italic font-normal text-[#6b1728]">structured by discipline.</span>
+            <span className=" italic font-normal text-[#6b1728]">structured by discipline.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
@@ -70,7 +70,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
                       {service.number}
                     </span>
                     <div>
-                      <h3 className={`text-base sm:text-lg font-serif font-bold transition-colors duration-150 ${
+                      <h3 className={`text-base sm:text-lg  font-bold transition-colors duration-150 ${
                         isActive ? "text-[#09090b]" : "text-[#52525b] group-hover:text-[#09090b]"
                       }`}>
                         {service.title}
@@ -113,7 +113,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
                     </div>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold font-serif text-[#09090b] mb-4">
+                  <h3 className="text-2xl sm:text-3xl font-bold  text-[#09090b] mb-4">
                     {activeService.title}
                   </h3>
 

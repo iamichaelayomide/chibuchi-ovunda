@@ -57,9 +57,9 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
             02 / THE PRACTICE TRANSFORMATION
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#09090b] tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-[#09090b] tracking-tight leading-tight mb-5">
             Operational friction, <br />
-            <span className="font-serif italic font-normal text-[#6b1728]">systematically resolved.</span>
+            <span className=" italic font-normal text-[#6b1728]">systematically resolved.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
@@ -86,7 +86,7 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
                   <span className="text-xs font-mono text-[#71717a] block mb-1 lg:hidden">
                     AREA {idx + 1}
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold font-serif text-[#09090b]">
+                  <h3 className="text-sm sm:text-base font-bold  text-[#09090b]">
                     {row.label}
                   </h3>
                 </div>
@@ -114,7 +114,7 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
               <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-2">
                 ONBOARDING ROADMAP
               </p>
-              <h3 className="text-2xl sm:text-4xl font-serif font-bold text-[#09090b] tracking-tight">
+              <h3 className="text-2xl sm:text-4xl  font-bold text-[#09090b] tracking-tight">
                 Three steps to an organized practice
               </h3>
             </div>
@@ -135,7 +135,7 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
                 className={`${sIdx !== 0 ? "pt-8 md:pt-0 md:pl-8 lg:pl-12" : ""}`}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-4xl sm:text-5xl font-serif font-bold text-[#09090b]">
+                  <span className="text-4xl sm:text-5xl  font-bold text-[#09090b]">
                     {step.num}
                   </span>
                   <span className="text-[10px] font-mono text-[#6b1728] uppercase tracking-wider font-semibold">
@@ -143,7 +143,7 @@ export const ProblemSolutionHowItWorks: React.FC = () => {
                   </span>
                 </div>
 
-                <h4 className="text-lg font-serif font-bold text-[#09090b] mb-2">
+                <h4 className="text-lg  font-bold text-[#09090b] mb-2">
                   {step.title}
                 </h4>
 

@@ -46,11 +46,11 @@ export const Header: React.FC = () => {
             href="#"
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#09090b] text-white flex items-center justify-center font-serif font-bold text-sm tracking-wider shadow-sm group-hover:bg-[#6b1728] transition-colors duration-160">
+            <div className="w-10 h-10 rounded-xl bg-[#09090b] text-white flex items-center justify-center  font-bold text-sm tracking-wider shadow-sm group-hover:bg-[#6b1728] transition-colors duration-160">
               CO
             </div>
             <div className="flex flex-col">
-              <span className="font-serif font-bold text-base text-[#09090b] tracking-tight group-hover:text-[#6b1728] transition-colors duration-160">
+              <span className=" font-bold text-base text-[#09090b] tracking-tight group-hover:text-[#6b1728] transition-colors duration-160">
                 {PORTFOLIO_INFO.name}
               </span>
               <span className="text-[10px] font-semibold text-[#52525b] uppercase tracking-widest">
@@ -112,7 +112,7 @@ export const Header: React.FC = () => {
             className="bg-[#fbfbfa] rounded-t-3xl border-t border-[#e4e4e7] p-6 shadow-2xl"
           >
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#e4e4e7]">
-              <span className="font-serif font-bold text-lg text-[#09090b]">Menu</span>
+              <span className=" font-bold text-lg text-[#09090b]">Menu</span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-1.5 rounded-lg bg-white border border-[#e4e4e7] text-[#09090b]"

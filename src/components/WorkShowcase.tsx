@@ -44,9 +44,9 @@ export const WorkShowcase: React.FC = () => {
             02 / CASE PROOF & DELIVERABLES
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#09090b] tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-[#09090b] tracking-tight leading-tight mb-5">
             Verified case work, <br />
-            <span className="font-serif italic font-normal text-[#6b1728]">redacted for confidentiality.</span>
+            <span className=" italic font-normal text-[#6b1728]">redacted for confidentiality.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
@@ -108,7 +108,7 @@ export const WorkShowcase: React.FC = () => {
               {/* Editorial Caption */}
               <div className="flex items-start justify-between gap-4 pt-1">
                 <div>
-                  <h3 className="text-lg font-serif font-bold text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150">
+                  <h3 className="text-lg  font-bold text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150">
                     {sample.title}
                   </h3>
                   <p className="text-xs text-[#52525b] leading-relaxed font-light mt-1 max-w-xl">
@@ -167,7 +167,7 @@ export const WorkShowcase: React.FC = () => {
                     {activeModalSample.categoryLabel}
                   </span>
 
-                  <h3 className="text-2xl font-bold font-serif text-[#09090b] mb-3">
+                  <h3 className="text-2xl font-bold  text-[#09090b] mb-3">
                     {activeModalSample.title}
                   </h3>
 

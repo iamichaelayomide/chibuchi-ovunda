@@ -46,7 +46,7 @@ export const FAQ: React.FC = () => {
             05 / COMMON INQUIRIES
           </p>
           
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#09090b] tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl  font-bold text-[#09090b] tracking-tight leading-tight mb-4">
             Frequently asked questions.
           </h2>
 
@@ -67,7 +67,7 @@ export const FAQ: React.FC = () => {
                   className="w-full text-left flex items-center justify-between gap-4 active:scale-[0.99] transition-transform duration-150 focus:outline-none group"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-bold font-serif text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150">
+                  <span className="text-base sm:text-lg font-bold  text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150">
                     {faq.q}
                   </span>
                   <div

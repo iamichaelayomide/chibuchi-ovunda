@@ -27,15 +27,15 @@ export const ToolsGrid: React.FC = () => {
     <section id="tools" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#faf9f5] border-b border-[#e4e4e7]">
       <div className="max-w-7xl mx-auto">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        {/* Center-Aligned Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-3">
             03 / LEGAL TECH STACK
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-[#09090b] tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#09090b] tracking-tight leading-tight mb-5 font-heading">
             Software & systems, <br />
-            <span className=" italic font-normal text-[#6b1728]">seamlessly integrated.</span>
+            <span className="text-[#6b1728] font-normal">seamlessly integrated.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
@@ -57,14 +57,14 @@ export const ToolsGrid: React.FC = () => {
                   type="button"
                   key={tool.name}
                   onClick={() => setSelectedTool(tool)}
-                  className={`p-4 text-left rounded-xl transition-all duration-150 active:scale-[0.97] flex flex-col justify-between h-28 border ${
+                  className={`p-4 text-left rounded-2xl transition-all duration-150 active:scale-[0.97] flex flex-col justify-between h-28 border ${
                     isSelected
-                      ? "bg-[#09090b] text-white border-[#09090b] shadow-sm"
+                      ? "bg-[#09090b] text-white border-[#09090b] shadow-md"
                       : "bg-white text-[#09090b] border-[#e4e4e7] hover:border-[#09090b]"
                   }`}
                 >
                   <div className="flex items-center justify-between w-full">
-                    <Icon className={`w-5 h-5 ${isSelected ? "text-[#f4c8d1]" : "text-[#6b1728]"}`} />
+                    <Icon className={`w-5 h-5 ${isSelected ? "text-[#f5cad5]" : "text-[#6b1728]"}`} />
                     <span className={`text-[9px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                       isSelected ? "bg-white/15 text-white" : "bg-[#faf9f5] text-[#71717a]"
                     }`}>
@@ -73,7 +73,7 @@ export const ToolsGrid: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-xs sm:text-sm font-bold  leading-tight">
+                    <h3 className="text-xs sm:text-sm font-bold leading-tight font-heading">
                       {tool.name}
                     </h3>
                     <p className={`text-[10px] font-mono mt-0.5 ${isSelected ? "text-white/60" : "text-[#71717a]"}`}>
@@ -85,18 +85,18 @@ export const ToolsGrid: React.FC = () => {
             })}
           </div>
 
-          {/* Detailed Capabilities Strip (Zero Bulky Cards) */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-white border border-[#e4e4e7] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          {/* Detailed Capabilities Strip */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#e4e4e7] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-xs font-mono font-bold text-[#6b1728] uppercase">
                   {selectedTool.categoryLabel}
                 </span>
                 <span className="text-xs text-[#d4d4d8]">/</span>
-                <h4 className="text-xl  font-bold text-[#09090b]">
+                <h4 className="text-xl font-bold text-[#09090b] font-heading">
                   {selectedTool.name}
                 </h4>
-                <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-[#faf9f5] border border-[#e4e4e7] text-[#09090b]">
+                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[#f5cad5] text-[#09090b]">
                   {selectedTool.proficiency} Proficiency
                 </span>
               </div>
@@ -107,7 +107,7 @@ export const ToolsGrid: React.FC = () => {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shrink-0"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shrink-0 shadow-sm"
             >
               <span>Connect Stack</span>
             </a>

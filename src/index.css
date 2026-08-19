@@ -5,19 +5,19 @@
 @layer base {
   :root {
     --bg-page: #faf9f5;
+    --bg-blush: #f5cad5;
+    --bg-blush-light: #fbf0f3;
     --bg-surface: #ffffff;
-    --bg-surface-elevated: #f4f4f5;
     
     --text-primary: #09090b;
     --text-secondary: #52525b;
     --text-muted: #71717a;
     
     --border-subtle: #e4e4e7;
-    --border-strong: #d4d4d8;
+    --border-blush: #e2b6c2;
     
     --accent-bordeaux: #6b1728;
     --accent-bordeaux-hover: #54111f;
-    --accent-bordeaux-light: #fbebee;
     
     --dark-bg: #09090b;
     --dark-surface: #121215;
@@ -70,6 +70,35 @@
 
   .font-mono-tag {
     font-family: "JetBrains Mono", monospace;
+  }
+
+  /* Subtle Elegant Architectural Patterns */
+  .pattern-grid-blush {
+    background-color: #f5cad5;
+    background-image: 
+      linear-gradient(to right, rgba(9, 9, 11, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(9, 9, 11, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .pattern-dots-light {
+    background-color: #ffffff;
+    background-image: radial-gradient(rgba(9, 9, 11, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .pattern-dots-blush {
+    background-color: #f5cad5;
+    background-image: radial-gradient(rgba(9, 9, 11, 0.09) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .pattern-grid-dark {
+    background-color: #09090b;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
   /* Tactile Physical Press Feedback */

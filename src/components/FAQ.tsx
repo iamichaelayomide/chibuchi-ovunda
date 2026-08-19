@@ -37,16 +37,16 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7]">
+    <section id="faq" className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7] pattern-dots-light">
       <div className="max-w-4xl mx-auto">
         
-        {/* Section Header */}
-        <div className="max-w-2xl mb-16">
+        {/* Center-Aligned Section Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
           <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-3">
             05 / COMMON INQUIRIES
           </p>
           
-          <h2 className="text-3xl sm:text-5xl  font-bold text-[#09090b] tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-bold text-[#09090b] tracking-tight leading-tight mb-4 font-heading">
             Frequently asked questions.
           </h2>
 
@@ -55,7 +55,7 @@ export const FAQ: React.FC = () => {
           </p>
         </div>
 
-        {/* Clean Hairline Accordion (Zero Boxed Cards) */}
+        {/* Clean Hairline Accordion */}
         <div className="border-t border-[#e4e4e7] divide-y divide-[#e4e4e7]">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
@@ -67,12 +67,12 @@ export const FAQ: React.FC = () => {
                   className="w-full text-left flex items-center justify-between gap-4 active:scale-[0.99] transition-transform duration-150 focus:outline-none group"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-bold  text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150">
+                  <span className="text-base sm:text-lg font-bold text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150 font-heading">
                     {faq.q}
                   </span>
                   <div
                     className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors duration-150 ${
-                      isOpen ? "bg-[#09090b] text-white" : "bg-[#faf9f5] text-[#71717a] group-hover:bg-[#e4e4e7]"
+                      isOpen ? "bg-[#09090b] text-[#f5cad5]" : "bg-[#faf9f5] text-[#71717a] group-hover:bg-[#f5cad5] group-hover:text-[#09090b]"
                     }`}
                   >
                     {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
@@ -102,7 +102,7 @@ export const FAQ: React.FC = () => {
         {/* Bottom Direct Link */}
         <div className="mt-12 pt-6 border-t border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-xs text-[#71717a] font-light">
-            Have a custom workflow inquiry?
+            Have a custom matter or practice inquiry?
           </span>
           <a
             href="#contact"

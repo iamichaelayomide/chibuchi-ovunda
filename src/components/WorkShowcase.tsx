@@ -23,10 +23,10 @@ export const WorkShowcase: React.FC = () => {
 
   const categories = [
     { id: "all", label: "All Selected Work" },
+    { id: "calendar", label: "Calendar & Notes" },
     { id: "organization", label: "File Systems" },
     { id: "formatting", label: "Agreements & MOUs" },
     { id: "communication", label: "Intake Systems" },
-    { id: "calendar", label: "Meeting Records" },
   ];
 
   const filteredSamples =
@@ -35,18 +35,18 @@ export const WorkShowcase: React.FC = () => {
       : WORK_SAMPLES.filter((s) => s.category === selectedCategory);
 
   return (
-    <section id="work" className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7]">
+    <section id="work" className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7] pattern-dots-light">
       <div className="max-w-7xl mx-auto">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-14">
+        {/* Center-Aligned Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-14">
           <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-3">
             02 / CASE PROOF & DELIVERABLES
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-[#09090b] tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#09090b] tracking-tight leading-tight mb-5 font-heading">
             Verified case work, <br />
-            <span className=" italic font-normal text-[#6b1728]">redacted for confidentiality.</span>
+            <span className="text-[#6b1728] font-normal">redacted for confidentiality.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
@@ -54,8 +54,8 @@ export const WorkShowcase: React.FC = () => {
           </p>
         </div>
 
-        {/* Filter Bar (Clean Line Tabs) */}
-        <div className="flex flex-wrap items-center gap-2 mb-12 border-b border-[#e4e4e7] pb-4">
+        {/* Center-Aligned Filter Bar */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 border-b border-[#e4e4e7] pb-4">
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -63,7 +63,7 @@ export const WorkShowcase: React.FC = () => {
               className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-150 active:scale-[0.96] ${
                 selectedCategory === cat.id
                   ? "bg-[#09090b] text-white shadow-xs"
-                  : "bg-transparent text-[#71717a] hover:text-[#09090b]"
+                  : "bg-white/80 border border-[#e4e4e7] text-[#71717a] hover:text-[#09090b]"
               }`}
             >
               {cat.label}
@@ -71,16 +71,16 @@ export const WorkShowcase: React.FC = () => {
           ))}
         </div>
 
-        {/* Work Plates Grid (Clean Editorial Frames, Zero Boxed Card Clutter) */}
+        {/* Work Plates Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {filteredSamples.map((sample) => (
             <article
               key={sample.id}
               onClick={() => setActiveModalSample(sample)}
-              className="group cursor-pointer flex flex-col"
+              className="group cursor-pointer flex flex-col bg-white rounded-3xl p-3 border border-[#e4e4e7] shadow-sm hover:border-[#09090b] transition-colors"
             >
               {/* Image Frame */}
-              <div className="relative aspect-[16/10] bg-[#18181b] rounded-2xl overflow-hidden border border-[#e4e4e7] mb-4">
+              <div className="relative aspect-[16/10] bg-[#18181b] rounded-2xl overflow-hidden border border-[#e4e4e7] mb-3">
                 <img
                   src={sample.imageSrc}
                   alt={sample.title}
@@ -98,7 +98,7 @@ export const WorkShowcase: React.FC = () => {
                 </div>
 
                 <div className="absolute inset-0 bg-[#09090b]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-160 flex items-center justify-center text-white">
-                  <div className="px-4 py-2 rounded-full bg-white text-[#09090b] font-bold text-xs flex items-center gap-1.5 shadow-md">
+                  <div className="px-4 py-2 rounded-full bg-white text-[#09090b] font-bold text-xs flex items-center gap-1.5 shadow-md font-heading">
                     <Maximize2 className="w-3.5 h-3.5" />
                     <span>Inspect Case Breakdown</span>
                   </div>
@@ -106,16 +106,16 @@ export const WorkShowcase: React.FC = () => {
               </div>
 
               {/* Editorial Caption */}
-              <div className="flex items-start justify-between gap-4 pt-1">
+              <div className="flex items-start justify-between gap-4 p-2">
                 <div>
-                  <h3 className="text-lg  font-bold text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150">
+                  <h3 className="text-base sm:text-lg font-bold text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150 font-heading">
                     {sample.title}
                   </h3>
                   <p className="text-xs text-[#52525b] leading-relaxed font-light mt-1 max-w-xl">
                     {sample.shortDesc}
                   </p>
                 </div>
-                <div className="w-7 h-7 rounded-full border border-[#e4e4e7] flex items-center justify-center shrink-0 text-[#09090b] group-hover:bg-[#09090b] group-hover:text-white group-hover:border-[#09090b] transition-all duration-150">
+                <div className="w-7 h-7 rounded-full border border-[#e4e4e7] flex items-center justify-center shrink-0 text-[#09090b] group-hover:bg-[#09090b] group-hover:text-white group-hover:border-[#09090b] transition-all duration-150 mt-1">
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
@@ -167,7 +167,7 @@ export const WorkShowcase: React.FC = () => {
                     {activeModalSample.categoryLabel}
                   </span>
 
-                  <h3 className="text-2xl font-bold  text-[#09090b] mb-3">
+                  <h3 className="text-2xl font-bold text-[#09090b] mb-3 font-heading">
                     {activeModalSample.title}
                   </h3>
 
@@ -209,7 +209,7 @@ export const WorkShowcase: React.FC = () => {
                   <a
                     href="#contact"
                     onClick={() => setActiveModalSample(null)}
-                    className="w-full py-3 rounded-full bg-[#09090b] text-white text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-sm"
+                    className="w-full py-3.5 rounded-full bg-[#09090b] text-white text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-150 shadow-sm"
                   >
                     <span>Request Similar Workflow</span>
                     <ArrowRight className="w-3.5 h-3.5" />

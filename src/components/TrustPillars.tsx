@@ -7,18 +7,18 @@ export const TrustPillars: React.FC = () => {
   const iconList = [ShieldCheck, Target, Zap, HeartHandshake];
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#09090b] text-white border-b border-[#27272a]">
+    <section className="py-24 px-4 sm:px-6 lg:px-12 bg-[#09090b] text-white border-b border-[#27272a] pattern-grid-dark">
       <div className="max-w-7xl mx-auto">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#f4c8d1] mb-3">
+        {/* Center-Aligned Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#f5cad5] mb-3">
             04 / PRACTICE COMMITMENT
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-white tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-5 font-heading">
             Four pillars of <br />
-            <span className=" italic font-normal text-[#f4c8d1]">operational integrity.</span>
+            <span className="text-[#f5cad5] font-normal">operational integrity.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-white/70 leading-relaxed font-light">
@@ -26,7 +26,7 @@ export const TrustPillars: React.FC = () => {
           </p>
         </div>
 
-        {/* Architectural 4-Column Broadsheet Layout (Zero Boxed Cards) */}
+        {/* Architectural 4-Column Broadsheet Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#27272a] border-y border-[#27272a]">
           {TRUST_PILLARS.map((pillar, idx) => {
             const Icon = iconList[idx] || ShieldCheck;
@@ -44,13 +44,13 @@ export const TrustPillars: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-8">
-                    <span className="text-3xl sm:text-4xl  font-bold text-[#f4c8d1]">
+                    <span className="text-3xl sm:text-4xl font-bold text-[#f5cad5] font-heading">
                       {pillar.number}
                     </span>
-                    <Icon className="w-5 h-5 text-white/40 group-hover:text-[#f4c8d1] transition-colors duration-150" />
+                    <Icon className="w-5 h-5 text-white/40 group-hover:text-[#f5cad5] transition-colors duration-150" />
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold  text-white mb-3 group-hover:text-[#f4c8d1] transition-colors duration-150">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-[#f5cad5] transition-colors duration-150 font-heading">
                     {pillar.title}
                   </h3>
 
@@ -59,7 +59,7 @@ export const TrustPillars: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#27272a] text-[10px] font-mono font-semibold uppercase tracking-wider text-white/40 group-hover:text-white transition-colors duration-150">
+                <div className="pt-4 border-t border-[#27272a] text-[10px] font-mono font-semibold uppercase tracking-wider text-white/40 group-hover:text-[#f5cad5] transition-colors duration-150">
                   {pillar.highlight}
                 </div>
               </div>

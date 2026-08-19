@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  Calendar,
   FolderKanban,
   FileCheck,
   MailCheck,
@@ -13,14 +14,6 @@ import {
 import { SERVICES_DATA } from "../data/portfolioData";
 import { ServiceItem } from "../types";
 
-const iconMap: Record<string, React.ElementType> = {
-  FolderKanban,
-  FileCheck,
-  MailCheck,
-  SearchCheck,
-  Workflow,
-};
-
 interface ServicesProps {
   onSelectServiceForConsult: (serviceTitle: string) => void;
 }
@@ -32,23 +25,23 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
     <section id="services" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#faf9f5] border-b border-[#e4e4e7]">
       <div className="max-w-7xl mx-auto">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        {/* Center-Aligned Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#6b1728] mb-3">
             01 / CORE DELIVERABLES
           </p>
           
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl  font-bold text-[#09090b] tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#09090b] tracking-tight leading-tight mb-5 font-heading">
             Legal practice capabilities, <br />
-            <span className=" italic font-normal text-[#6b1728]">structured by discipline.</span>
+            <span className="text-[#6b1728] font-normal">structured by discipline.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
-            Select an operational area below to inspect specific deliverables, standard turnaround times, and practice workflows.
+            Select a legal support area below to inspect specific deliverables, standard turnaround times, and practice workflows.
           </p>
         </div>
 
-        {/* Editorial Master-Detail Catalog (Clean Line Rows, Zero Boxed Card Fatigue) */}
+        {/* Editorial Master-Detail Catalog */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start border-t border-[#e4e4e7] pt-8">
           
           {/* Left: Clean Numbered Index Rows */}
@@ -70,7 +63,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
                       {service.number}
                     </span>
                     <div>
-                      <h3 className={`text-base sm:text-lg  font-bold transition-colors duration-150 ${
+                      <h3 className={`text-base sm:text-lg font-bold transition-colors duration-150 font-heading ${
                         isActive ? "text-[#09090b]" : "text-[#52525b] group-hover:text-[#09090b]"
                       }`}>
                         {service.title}
@@ -113,7 +106,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForConsult })
                     </div>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold  text-[#09090b] mb-4">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#09090b] mb-4 font-heading">
                     {activeService.title}
                   </h3>
 

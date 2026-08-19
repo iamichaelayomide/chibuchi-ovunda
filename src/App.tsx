@@ -3,10 +3,12 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { MarqueeTicker } from "./components/MarqueeTicker";
 import { Metrics } from "./components/Metrics";
+import { ProblemSolutionHowItWorks } from "./components/ProblemSolutionHowItWorks";
 import { Services } from "./components/Services";
 import { WorkShowcase } from "./components/WorkShowcase";
 import { ToolsGrid } from "./components/ToolsGrid";
 import { TrustPillars } from "./components/TrustPillars";
+import { FAQ } from "./components/FAQ";
 import { ConsultationContact } from "./components/ConsultationContact";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
@@ -31,49 +33,49 @@ export function App() {
     }
   };
 
-  const handleOpenConsultation = () => {
-    const el = document.getElementById("contact");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#fffaf7] text-[#0b0b0b] relative font-sans selection:bg-[#f4c8d1] selection:text-[#0b0b0b]">
-      {/* Dynamic Header */}
-      <Header onOpenConsultation={handleOpenConsultation} />
+    <div className="min-h-screen flex flex-col bg-[#faf9f5] text-[#09090b] relative font-sans selection:bg-[#6b1728] selection:text-white">
+      {/* 01: Top Architectural Header */}
+      <Header />
 
-      {/* Main Content */}
+      {/* Main Single-Offer Landing Progression */}
       <main className="flex-1">
-        {/* Dynamic Hero */}
-        <Hero onOpenConsultation={handleOpenConsultation} />
+        
+        {/* 01: Hero (Outcome, Audience, Proof Signals, Direct CTA) */}
+        <Hero onSelectServiceForConsult={handleSelectService} />
 
-        {/* Double Marquee Tickers */}
+        {/* 02: Credibility Ticker Strip */}
         <MarqueeTicker />
 
-        {/* Live Animated Metrics */}
+        {/* 03: Verified Proof Metrics Bar */}
         <Metrics />
 
-        {/* Dynamic Services Matrix */}
-        <Services onSelectService={handleSelectService} />
+        {/* 04: The Problem -> Solution & 3-Step Onboarding */}
+        <ProblemSolutionHowItWorks />
 
-        {/* Selected Work & Case Studies with Lightbox */}
+        {/* 05: Core Practice Services & Deliverables Catalog */}
+        <Services onSelectServiceForConsult={handleSelectService} />
+
+        {/* 06: Verified Work Showcase & Case Proof */}
         <WorkShowcase />
 
-        {/* Tech Stack & Legal Tools Grid */}
+        {/* 07: Tech Stack & System Integration */}
         <ToolsGrid />
 
-        {/* Trust Pillars & Testimonials */}
+        {/* 08: Trust & Confidentiality Architecture */}
         <TrustPillars />
 
-        {/* Interactive Consultation & Contact */}
+        {/* 09: Objection Handling FAQ */}
+        <FAQ />
+
+        {/* 10: Final Direct Consultation Builder */}
         <ConsultationContact
           preselectedService={selectedServiceForForm}
           onShowToast={showToast}
         />
       </main>
 
-      {/* Footer */}
+      {/* 11: Editorial Footer */}
       <Footer />
 
       {/* Floating Utilities */}

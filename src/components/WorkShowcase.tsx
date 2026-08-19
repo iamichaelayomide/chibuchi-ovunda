@@ -23,10 +23,11 @@ export const WorkShowcase: React.FC = () => {
 
   const categories = [
     { id: "all", label: "All Selected Work" },
-    { id: "calendar", label: "Calendar & Notes" },
-    { id: "organization", label: "File Systems" },
-    { id: "formatting", label: "Agreements & MOUs" },
-    { id: "communication", label: "Intake Systems" },
+    { id: "calendar", label: "Calendar Management" },
+    { id: "email", label: "Email Management" },
+    { id: "document", label: "Document Management" },
+    { id: "minutes", label: "Minute Taking" },
+    { id: "file", label: "File Management" },
   ];
 
   const filteredSamples =
@@ -50,7 +51,7 @@ export const WorkShowcase: React.FC = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light">
-            Real file structures, commercial agreements, intake databases, and consultation records prepared for active legal practices. Click any sample to inspect the case breakdown.
+            Real calendar structures, custom email labels, commercial agreements, consultation minutes, and 8-folder matter archives. Click any sample to inspect the case breakdown.
           </p>
         </div>
 
@@ -72,15 +73,15 @@ export const WorkShowcase: React.FC = () => {
         </div>
 
         {/* Work Plates Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredSamples.map((sample) => (
             <article
               key={sample.id}
               onClick={() => setActiveModalSample(sample)}
-              className="group cursor-pointer flex flex-col bg-white rounded-3xl p-3 border border-[#e4e4e7] shadow-sm hover:border-[#09090b] transition-colors"
+              className="group cursor-pointer flex flex-col bg-white rounded-3xl p-3.5 border border-[#e4e4e7] shadow-sm hover:border-[#09090b] transition-all hover:shadow-md"
             >
               {/* Image Frame */}
-              <div className="relative aspect-[16/10] bg-[#18181b] rounded-2xl overflow-hidden border border-[#e4e4e7] mb-3">
+              <div className="relative aspect-[16/10] bg-[#09090b] rounded-2xl overflow-hidden border border-[#e4e4e7] mb-3.5">
                 <img
                   src={sample.imageSrc}
                   alt={sample.title}
@@ -106,12 +107,12 @@ export const WorkShowcase: React.FC = () => {
               </div>
 
               {/* Editorial Caption */}
-              <div className="flex items-start justify-between gap-4 p-2">
+              <div className="flex items-start justify-between gap-3 p-2">
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150 font-heading">
+                  <h3 className="text-base font-bold text-[#09090b] group-hover:text-[#6b1728] transition-colors duration-150 font-heading">
                     {sample.title}
                   </h3>
-                  <p className="text-xs text-[#52525b] leading-relaxed font-light mt-1 max-w-xl">
+                  <p className="text-xs text-[#52525b] leading-relaxed font-light mt-1 line-clamp-2">
                     {sample.shortDesc}
                   </p>
                 </div>

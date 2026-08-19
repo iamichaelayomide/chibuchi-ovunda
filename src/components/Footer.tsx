@@ -1,0 +1,53 @@
+import React from "react";
+import { Scale, Heart, ArrowUp } from "lucide-react";
+import { PORTFOLIO_INFO } from "../data/portfolioData";
+
+export const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <footer className="bg-[#050505] text-white py-12 px-4 sm:px-6 lg:px-12 border-t border-white/10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60">
+        
+        {/* Left: Brand & Legal Notice */}
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-[#f4c8d1] text-[#0b0b0b] flex items-center justify-center font-serif font-bold text-xs">
+            CO
+          </div>
+          <div>
+            <p className="text-white font-serif font-semibold text-xs">
+              © {new Date().getFullYear()} {PORTFOLIO_INFO.name}. All rights reserved.
+            </p>
+            <p className="text-[10px] text-white/50">
+              Virtual Legal Administration & Practice Operations
+            </p>
+          </div>
+        </div>
+
+        {/* Center: Location & Availability */}
+        <div className="text-center">
+          <p className="text-white/80 font-medium">
+            {PORTFOLIO_INFO.location}
+          </p>
+          <p className="text-[10px] text-white/50">
+            Strict Attorney-Client Discretion & Confidentiality Enforced
+          </p>
+        </div>
+
+        {/* Right: Quick Back to Top */}
+        <div>
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors text-xs font-semibold"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+      </div>
+    </footer>
+  );
+};

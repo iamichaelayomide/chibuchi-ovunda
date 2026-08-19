@@ -4,13 +4,28 @@
 
 @layer base {
   :root {
-    --pink: #f4c8d1;
-    --pink-deep: #c84f70;
-    --pink-accent: #a83254;
-    --cream: #fffaf7;
-    --obsidian: #0b0b0b;
+    --bg-page: #fbfbfa;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f4f4f5;
+    
+    --text-primary: #09090b;
+    --text-secondary: #52525b;
+    --text-muted: #71717a;
+    
+    --border-subtle: #e4e4e7;
+    --border-strong: #d4d4d8;
+    
+    --accent-bordeaux: #6b1728;
+    --accent-bordeaux-hover: #54111f;
+    --accent-bordeaux-light: #fbebee;
+    
+    --accent-gold: #9e7b47;
+    
+    --dark-bg: #09090b;
+    --dark-surface: #121215;
+    --dark-border: #27272a;
 
-    /* Emil Design Engineering Custom Easing Curves */
+    /* Emil Kowalski Precise Motion Curves */
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
@@ -22,30 +37,30 @@
   }
 
   body {
-    background-color: var(--cream);
-    color: var(--obsidian);
-    font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Custom subtle scrollbar */
+  /* Solid, minimal scrollbar */
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #fff0f3;
+    background: #f4f4f5;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #e6a8b7;
-    border-radius: 4px;
+    background: #d4d4d8;
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #c84f70;
+    background: #a1a1aa;
   }
 }
 
@@ -58,31 +73,37 @@
     font-family: "Cinzel", "Playfair Display", Georgia, serif;
   }
 
-  .glass-header {
-    background: rgba(244, 200, 209, 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+  /* Solid architectural headers */
+  .solid-header {
+    background: rgba(251, 251, 250, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
-  .glass-card {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(230, 203, 209, 0.6);
+  .solid-card {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
   }
 
-  /* Emil Design Engineering: Tactile Press Feedback */
+  .solid-card-dark {
+    background: #121215;
+    border: 1px solid var(--dark-border);
+  }
+
+  /* Tactile Physical Press Feedback (Emil Kowalski Design Engineering) */
   .interactive-press {
     transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
   }
 
   .interactive-press:active {
-    transform: scale(0.97) !important;
+    transform: scale(0.98) !important;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .interactive-hover {
-      transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1);
+      transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 180ms cubic-bezier(0.23, 1, 0.32, 1), border-color 180ms ease;
     }
   }
 

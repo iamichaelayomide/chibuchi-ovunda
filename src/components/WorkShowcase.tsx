@@ -5,7 +5,8 @@ import {
   Maximize2,
   X,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  CheckCircle2
 } from "lucide-react";
 import { WORK_SAMPLES } from "../data/portfolioData";
 import { WorkSample } from "../types";
@@ -37,53 +38,53 @@ export const WorkShowcase: React.FC = () => {
       : WORK_SAMPLES.filter((s) => s.category === selectedCategory);
 
   return (
-    <section id="work" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#f4c8d1] relative border-b border-[#0b0b0b]/10">
+    <section id="work" className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7]">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="max-w-3xl mb-14">
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-            className="text-xs font-bold uppercase tracking-widest text-[#a83254] mb-3"
+            transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+            className="text-xs font-bold uppercase tracking-widest text-[#6b1728] mb-3"
           >
-            Selected Work Samples
+            Verified Case Work
           </motion.p>
           
           <motion.h2
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-serif text-[#0b0b0b] tracking-tight leading-tight mb-5"
+            transition={{ duration: 0.45, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#09090b] tracking-tight leading-tight mb-5"
           >
-            Supporting legal professionals <br />
-            <span className="font-serif italic font-normal text-[#a83254]">behind the scenes.</span>
+            Proof of execution, <br />
+            <span className="font-serif italic font-normal text-[#6b1728]">confidential by default.</span>
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.16, ease: [0.23, 1, 0.32, 1] }}
-            className="text-base sm:text-lg text-[#0b0b0b]/80 leading-relaxed font-light"
+            transition={{ duration: 0.45, delay: 0.16, ease: [0.23, 1, 0.32, 1] }}
+            className="text-base sm:text-lg text-[#52525b] leading-relaxed font-light"
           >
-            Real-world systems, document formatting, and intake management executed for legal practitioners. Click any sample to inspect the details.
+            Real-world file architectures, client intake databases, and formatted agreements prepared for active practices. Click any sample to inspect the case breakdown.
           </motion.p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-14">
+        <div className="flex flex-wrap items-center gap-2 mb-12">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase active:scale-[0.96] transition-all duration-160 ${
+              className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase active:scale-[0.96] transition-all duration-150 ${
                 selectedCategory === cat.id
-                  ? "bg-[#0b0b0b] text-white shadow-md scale-105"
-                  : "bg-white/65 text-[#0b0b0b]/75 hover:bg-white hover:text-[#0b0b0b]"
+                  ? "bg-[#09090b] text-white shadow-sm"
+                  : "bg-[#f4f4f5] text-[#52525b] hover:bg-[#e4e4e7] hover:text-[#09090b]"
               }`}
             >
               {cat.label}
@@ -104,13 +105,13 @@ export const WorkShowcase: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.35, delay: idx * 0.04, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: 0.3, delay: idx * 0.04, ease: [0.23, 1, 0.32, 1] }}
                 whileHover={{ y: -4 }}
                 onClick={() => setActiveModalSample(sample)}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl active:scale-[0.98] transition-all duration-200 border border-[#e6cbd1] cursor-pointer flex flex-col group"
+                className="bg-[#fbfbfa] rounded-2xl overflow-hidden border border-[#e4e4e7] shadow-sm hover:shadow-md active:scale-[0.98] transition-all duration-200 cursor-pointer flex flex-col group"
               >
-                {/* Image Container with Zoom & Badge */}
-                <div className="relative aspect-[4/3] bg-[#0b0b0b]/5 overflow-hidden border-b border-[#e6cbd1]/40">
+                {/* Image Container */}
+                <div className="relative aspect-[4/3] bg-[#18181b] overflow-hidden border-b border-[#e4e4e7]">
                   <img
                     src={sample.imageSrc}
                     alt={`${sample.title} preview`}
@@ -119,38 +120,38 @@ export const WorkShowcase: React.FC = () => {
                   />
                   
                   {/* Category Chip */}
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#0b0b0b]/80 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#09090b]/85 backdrop-blur-sm text-white text-[10px] font-bold tracking-wider uppercase">
                     {sample.categoryLabel}
                   </div>
 
-                  {/* Redacted Watermark Pill */}
-                  <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[#a83254] text-[9px] font-bold flex items-center gap-1">
+                  {/* Redacted Watermark */}
+                  <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-sm text-[#6b1728] text-[9px] font-bold flex items-center gap-1 border border-[#e4e4e7]">
                     <ShieldCheck className="w-3 h-3" />
                     <span>Redacted</span>
                   </div>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#0b0b0b]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 text-white">
-                    <div className="p-3 rounded-full bg-white text-[#0b0b0b] font-bold text-xs flex items-center gap-1.5 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
-                      <Maximize2 className="w-4 h-4" />
-                      <span>Inspect Details</span>
+                  <div className="absolute inset-0 bg-[#09090b]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 text-white">
+                    <div className="p-2.5 px-3.5 rounded-full bg-white text-[#09090b] font-bold text-xs flex items-center gap-1.5 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
+                      <Maximize2 className="w-3.5 h-3.5" />
+                      <span>Inspect Breakdown</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Card Content */}
-                <div className="p-5 flex-1 flex flex-col justify-between">
+                <div className="p-5 flex-1 flex flex-col justify-between bg-white">
                   <div>
-                    <h3 className="text-base font-bold font-serif text-[#0b0b0b] mb-1.5 group-hover:text-[#a83254] transition-colors duration-150">
+                    <h3 className="text-base font-bold font-serif text-[#09090b] mb-1.5 group-hover:text-[#6b1728] transition-colors duration-150">
                       {sample.title}
                     </h3>
-                    <p className="text-xs text-[#0b0b0b]/70 leading-relaxed line-clamp-2 mb-4">
+                    <p className="text-xs text-[#52525b] leading-relaxed line-clamp-2 mb-4 font-light">
                       {sample.shortDesc}
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-3 border-t border-[#0b0b0b]/5 text-xs font-bold text-[#a83254]">
-                    <span>Case Details & Tools</span>
+                  <div className="flex items-center justify-between pt-3 border-t border-[#e4e4e7] text-xs font-bold text-[#6b1728]">
+                    <span>Case Breakdown</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-160" />
                   </div>
                 </div>
@@ -159,14 +160,17 @@ export const WorkShowcase: React.FC = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Centered Discuss CTA */}
-        <div className="mt-14 text-center">
+        {/* Centered CTA */}
+        <div className="mt-14 pt-8 border-t border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs sm:text-sm text-[#52525b] font-light">
+            Have a custom legal document, intake flow, or folder system to organize?
+          </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#0b0b0b] border-b-2 border-[#0b0b0b] hover:text-[#a83254] hover:border-[#a83254] active:scale-[0.98] pb-1 transition-all duration-160 group"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#09090b] hover:text-[#6b1728] border-b-2 border-[#09090b] hover:border-[#6b1728] pb-0.5 active:scale-[0.98] transition-all duration-150 group"
           >
-            <span>Have a specific legal workflow to organize? Let’s talk</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-160" />
+            <span>Discuss your matter requirements</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-150" />
           </a>
         </div>
 
@@ -183,38 +187,38 @@ export const WorkShowcase: React.FC = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.18 }}
               onClick={() => setActiveModalSample(null)}
-              className="fixed inset-0 bg-[#0b0b0b]/80 backdrop-blur-md"
+              className="fixed inset-0 bg-[#09090b]/80 backdrop-blur-sm"
             />
 
             {/* Modal Box */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              initial={{ opacity: 0, scale: 0.96, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 12 }}
+              exit={{ opacity: 0, scale: 0.96, y: 8 }}
               transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
-              className="relative w-full max-w-4xl bg-[#fffaf7] rounded-3xl overflow-hidden shadow-2xl border border-white/20 z-10 my-auto max-h-[90vh] flex flex-col md:flex-row"
+              className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#e4e4e7] z-10 my-auto max-h-[90vh] flex flex-col md:flex-row"
             >
               {/* Close Button */}
               <button
                 onClick={() => setActiveModalSample(null)}
-                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-[#0b0b0b] text-white hover:bg-[#a83254] active:scale-[0.95] transition-all duration-150 shadow-lg focus:outline-none"
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-[#09090b] text-white hover:bg-[#6b1728] active:scale-[0.95] transition-all duration-150 shadow-md focus:outline-none"
                 aria-label="Close modal"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
 
               {/* Left Column: Image Inspection */}
-              <div className="md:w-1/2 bg-[#0b0b0b] relative flex items-center justify-center p-4 min-h-[300px]">
+              <div className="md:w-1/2 bg-[#09090b] relative flex items-center justify-center p-6 min-h-[280px]">
                 <img
                   src={activeModalSample.imageSrc}
                   alt={activeModalSample.title}
-                  className="max-h-[500px] w-full object-contain rounded-lg shadow-xl"
+                  className="max-h-[480px] w-full object-contain rounded-lg shadow-xl"
                 />
                 
-                <div className="absolute bottom-3 left-3 right-3 p-2 rounded-lg bg-[#0b0b0b]/80 backdrop-blur-md text-white text-[10px] flex items-center justify-between border border-white/10">
-                  <span className="flex items-center gap-1 text-[#f4c8d1]">
+                <div className="absolute bottom-3 left-3 right-3 p-2 rounded-lg bg-[#09090b]/90 backdrop-blur-sm text-white text-[10px] flex items-center justify-between border border-white/10">
+                  <span className="flex items-center gap-1.5 text-[#f4c8d1]">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#f4c8d1]" />
-                    <span>Confidential Sample Redacted</span>
+                    <span>Client Details & Names Redacted</span>
                   </span>
                 </div>
               </div>
@@ -222,38 +226,38 @@ export const WorkShowcase: React.FC = () => {
               {/* Right Column: Case Study Breakdown */}
               <div className="md:w-1/2 p-6 sm:p-8 overflow-y-auto max-h-[500px] md:max-h-[600px] flex flex-col justify-between">
                 <div>
-                  <div className="inline-block px-3 py-1 rounded-full bg-[#f4c8d1] text-[#0b0b0b] text-[11px] font-bold tracking-wider uppercase mb-3">
+                  <div className="inline-block px-3 py-1 rounded-full bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-[10px] font-bold tracking-wider uppercase mb-3">
                     {activeModalSample.categoryLabel}
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold font-serif text-[#0b0b0b] mb-3">
+                  <h3 className="text-2xl font-bold font-serif text-[#09090b] mb-2">
                     {activeModalSample.title}
                   </h3>
 
-                  <p className="text-xs text-[#0b0b0b]/80 leading-relaxed mb-6 font-light">
+                  <p className="text-xs text-[#52525b] leading-relaxed mb-6 font-light">
                     {activeModalSample.fullDesc}
                   </p>
 
-                  <div className="space-y-4 mb-6">
-                    <div className="p-3.5 rounded-xl bg-white border border-[#e6cbd1]">
-                      <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#a83254] mb-1">
+                  <div className="space-y-3.5 mb-6">
+                    <div className="p-3.5 rounded-xl bg-[#fbfbfa] border border-[#e4e4e7]">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#6b1728] mb-1">
                         The Challenge
                       </h4>
-                      <p className="text-xs text-[#0b0b0b]/80 leading-relaxed">
+                      <p className="text-xs text-[#52525b] leading-relaxed">
                         {activeModalSample.challenge}
                       </p>
                     </div>
 
-                    <div className="p-3.5 rounded-xl bg-white border border-[#e6cbd1]">
-                      <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#a83254] mb-1">
+                    <div className="p-3.5 rounded-xl bg-[#fbfbfa] border border-[#e4e4e7]">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#6b1728] mb-1">
                         Execution & Solution
                       </h4>
-                      <p className="text-xs text-[#0b0b0b]/80 leading-relaxed">
+                      <p className="text-xs text-[#52525b] leading-relaxed">
                         {activeModalSample.solution}
                       </p>
                     </div>
 
-                    <div className="p-3.5 rounded-xl bg-[#0b0b0b] text-white border border-white/10">
+                    <div className="p-3.5 rounded-xl bg-[#09090b] text-white border border-[#27272a]">
                       <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#f4c8d1] mb-1">
                         Outcome & Impact
                       </h4>
@@ -263,16 +267,16 @@ export const WorkShowcase: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Tools Used Chips */}
+                  {/* Tools Used */}
                   <div>
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0b0b0b]/60 mb-2">
-                      Tools Leveraged
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#71717a] mb-2">
+                      Tools & Stack
                     </h4>
                     <div className="flex flex-wrap gap-1.5">
                       {activeModalSample.toolsUsed.map((tool, tIdx) => (
                         <span
                           key={tIdx}
-                          className="px-2.5 py-1 rounded-md bg-white border border-[#e6cbd1] text-[11px] font-semibold text-[#0b0b0b]"
+                          className="px-2.5 py-1 rounded-md bg-[#f4f4f5] border border-[#e4e4e7] text-[11px] font-semibold text-[#09090b]"
                         >
                           {tool}
                         </span>
@@ -282,11 +286,11 @@ export const WorkShowcase: React.FC = () => {
                 </div>
 
                 {/* Bottom Modal CTA */}
-                <div className="mt-8 pt-4 border-t border-[#0b0b0b]/10">
+                <div className="mt-8 pt-4 border-t border-[#e4e4e7]">
                   <a
                     href="#contact"
                     onClick={() => setActiveModalSample(null)}
-                    className="w-full py-3.5 rounded-xl bg-[#0b0b0b] text-white text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#a83254] active:scale-[0.97] transition-all duration-160"
+                    className="w-full py-3.5 rounded-xl bg-[#09090b] text-white text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-sm"
                   >
                     <span>Request Similar Workflow Setup</span>
                     <ArrowRight className="w-3.5 h-3.5" />

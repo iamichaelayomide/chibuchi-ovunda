@@ -1,77 +1,40 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { METRICS_DATA } from "../data/portfolioData";
-import { CheckCircle2, TrendingUp } from "lucide-react";
-
-interface CounterProps {
-  value: number;
-  suffix?: string;
-  prefix?: string;
-}
-
-const AnimatedCounter: React.FC<CounterProps> = ({ value, suffix = "", prefix = "" }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    let start = 0;
-    const end = value;
-    const duration = 1600;
-    const isDecimal = value % 1 !== 0;
-    const stepTime = 20;
-    const totalSteps = duration / stepTime;
-    const stepValue = end / totalSteps;
-
-    const timer = setInterval(() => {
-      start += stepValue;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(isDecimal ? parseFloat(start.toFixed(1)) : Math.floor(start));
-      }
-    }, stepTime);
-
-    return () => clearInterval(timer);
-  }, [isInView, value]);
-
-  return (
-    <span ref={ref} className="tabular-nums font-serif">
-      {prefix}
-      {count}
-      {suffix}
-    </span>
-  );
-};
 
 export const Metrics: React.FC = () => {
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0b0b0b]/5 relative">
+    <section className="py-16 px-4 sm:px-6 lg:px-12 bg-white border-b border-[#e4e4e7]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#e6cbd1]/60">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-[#e4e4e7]">
           {METRICS_DATA.map((item, idx) => (
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              key={item.label}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="flex flex-col items-center text-center px-6 pt-6 sm:pt-0"
+              transition={{ duration: 0.4, delay: idx * 0.06, ease: [0.23, 1, 0.32, 1] }}
+              className={`flex flex-col justify-center ${idx !== 0 ? "pt-6 sm:pt-0 sm:pl-8" : ""}`}
             >
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0b0b0b] tracking-tight mb-2 flex items-center justify-center">
-                <AnimatedCounter
-                  value={item.value}
-                  suffix={item.suffix}
-                  prefix={item.prefix}
-                />
+              <div className="flex items-baseline gap-0.5 mb-1.5">
+                {item.prefix && (
+                  <span className="text-xl sm:text-2xl font-serif text-[#6b1728] font-bold">
+                    {item.prefix}
+                  </span>
+                )}
+                <span className="text-3xl sm:text-5xl font-serif font-bold text-[#09090b] tracking-tight">
+                  {item.value}
+                </span>
+                {item.suffix && (
+                  <span className="text-xl sm:text-2xl font-serif text-[#6b1728] font-bold">
+                    {item.suffix}
+                  </span>
+                )}
               </div>
-              <h3 className="text-sm font-bold text-[#a83254] uppercase tracking-wider mb-1">
+              <h3 className="text-xs sm:text-sm font-bold text-[#09090b] tracking-tight mb-1">
                 {item.label}
               </h3>
-              <p className="text-xs text-[#0b0b0b]/70 font-medium max-w-[200px]">
+              <p className="text-[11px] text-[#71717a] font-light leading-snug">
                 {item.sublabel}
               </p>
             </motion.div>

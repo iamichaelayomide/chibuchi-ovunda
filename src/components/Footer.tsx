@@ -8,12 +8,12 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#050505] text-white py-12 px-4 sm:px-6 lg:px-12 border-t border-white/10">
+    <footer className="bg-[#09090b] text-white py-12 px-4 sm:px-6 lg:px-12 border-t border-[#27272a]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60">
         
-        {/* Left: Brand & Legal Notice */}
+        {/* Left: Brand & Title */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#f4c8d1] text-[#0b0b0b] flex items-center justify-center font-serif font-bold text-xs">
+          <div className="w-8 h-8 rounded-lg bg-[#6b1728] text-white flex items-center justify-center font-serif font-bold text-xs">
             CO
           </div>
           <div>
@@ -26,17 +26,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Center: Location & Availability */}
+        {/* Center: Location & Discretion Notice */}
         <div className="text-center">
           <p className="text-white/80 font-medium">
             {PORTFOLIO_INFO.location}
           </p>
           <p className="text-[10px] text-white/50">
-            Strict Confidentiality & Discretion Enforced
+            Strict Confidentiality & Privileged Record Handling
           </p>
         </div>
 
-        {/* Right: Quick Back to Top */}
+        {/* Right: Back to top button */}
         <div>
           <button
             onClick={scrollToTop}

@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { Menu, X, ArrowRight, ShieldCheck } from "lucide-react";
 import { PORTFOLIO_INFO } from "../data/portfolioData";
 
-interface HeaderProps {
-  onOpenConsultation: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
+export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
 
-  // Emil Design Eng: Spring scroll progress
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 140,
@@ -23,181 +17,135 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      const sections = ["home", "services", "work", "tools", "about", "contact"];
-      const scrollPos = window.scrollY + 180;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home", id: "home" },
-    { name: "Services", href: "#services", id: "services" },
-    { name: "Work", href: "#work", id: "work" },
-    { name: "Tools", href: "#tools", id: "tools" },
-    { name: "About", href: "#about", id: "about" },
-    { name: "Contact", href: "#contact", id: "contact" },
+    { label: "Services", href: "#services" },
+    { label: "Work Showcase", href: "#work" },
+    { label: "Tech Stack", href: "#tools" },
+    { label: "Trust Standards", href: "#about" },
+    { label: "Contact", href: "#contact" },
   ];
-
-  const closeMenu = () => setMobileMenuOpen(false);
 
   return (
     <>
-      {/* Top Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#c84f70] via-[#a83254] to-[#0b0b0b] origin-left z-50 pointer-events-none"
-        style={{ scaleX }}
-      />
-
-      {/* Main Header */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
           scrolled
-            ? "bg-[#f4c8d1]/90 backdrop-blur-md shadow-xs border-b border-[#0b0b0b]/10 py-3"
-            : "bg-[#f4c8d1] border-b border-[#0b0b0b]/8 py-4"
+            ? "bg-[#fbfbfa]/95 backdrop-blur-md border-b border-[#e4e4e7] py-3.5 shadow-sm"
+            : "bg-transparent py-5 border-b border-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between gap-4">
-          {/* Brand */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
+          
+          {/* Logo / Monogram */}
           <a
-            href="#home"
-            onClick={closeMenu}
-            className="flex items-center gap-3 group focus:outline-none active:scale-[0.98] transition-transform"
-            aria-label="Chibuchi Ovunda home"
+            href="#"
+            className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-full bg-[#0b0b0b] text-[#f4c8d1] flex items-center justify-center font-serif text-base font-bold tracking-tighter group-hover:scale-105 transition-transform duration-200 shadow-inner">
+            <div className="w-10 h-10 rounded-xl bg-[#09090b] text-white flex items-center justify-center font-serif font-bold text-sm tracking-wider shadow-sm group-hover:bg-[#6b1728] transition-colors duration-160">
               CO
             </div>
-            <div>
-              <span className="block font-bold text-sm sm:text-base tracking-tight text-[#0b0b0b] font-serif">
+            <div className="flex flex-col">
+              <span className="font-serif font-bold text-base text-[#09090b] tracking-tight group-hover:text-[#6b1728] transition-colors duration-160">
                 {PORTFOLIO_INFO.name}
               </span>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-                <span className="text-[11px] text-[#0b0b0b]/70 font-medium tracking-wide">
-                  Virtual Legal Assistant
-                </span>
-              </div>
+              <span className="text-[10px] font-semibold text-[#52525b] uppercase tracking-widest">
+                Virtual Legal Assistant
+              </span>
             </div>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1 bg-[#0b0b0b]/5 px-3 py-1.5 rounded-full border border-[#0b0b0b]/10">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
-              return (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  className={`relative px-3.5 py-1 text-xs font-semibold uppercase tracking-wider transition-colors duration-150 active:scale-[0.96] ${
-                    isActive
-                      ? "text-[#0b0b0b]"
-                      : "text-[#0b0b0b]/70 hover:text-[#0b0b0b]"
-                  }`}
-                >
-                  {link.name}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute inset-0 bg-white/70 rounded-full -z-10 shadow-xs"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                </a>
-              );
-            })}
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center gap-1 bg-white border border-[#e4e4e7] px-3 py-1.5 rounded-full shadow-sm">
+            {navLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#52525b] hover:text-[#09090b] hover:bg-[#f4f4f5] active:scale-[0.96] transition-all duration-150"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
-          {/* Right Actions */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenConsultation}
-              className="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#0b0b0b] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#a83254] active:scale-[0.97] transition-all duration-160 shadow-xs hover:shadow-md group"
+          {/* Right Action Button */}
+          <div className="hidden sm:flex items-center gap-3">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#09090b] text-white text-xs font-bold tracking-wider uppercase hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-sm group"
             >
-              <span>Let’s Work Together</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-160" />
-            </button>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-full bg-[#0b0b0b] text-white hover:bg-[#a83254] active:scale-[0.95] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#c84f70]"
-              aria-label="Toggle Menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+              <span>Consultation</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-160" />
+            </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-xl bg-white border border-[#e4e4e7] text-[#09090b] active:scale-[0.94] transition-transform duration-150"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+
         </div>
 
-        {/* Mobile Navigation Drawer */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
-              className="lg:hidden bg-[#0b0b0b] text-white border-t border-white/10 px-6 py-6 overflow-hidden shadow-2xl"
-            >
-              <div className="flex flex-col gap-2.5">
-                <div className="pb-3 mb-2 border-b border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs text-white/80">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                    <span>Accepting Engagements</span>
-                  </div>
-                  <span className="text-[10px] text-white/50 tracking-wider uppercase font-semibold">
-                    Akure · Remote
-                  </span>
-                </div>
-
-                {navLinks.map((link, idx) => (
-                  <motion.a
-                    key={link.id}
-                    href={link.href}
-                    onClick={closeMenu}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.04, ease: [0.23, 1, 0.32, 1] }}
-                    className={`py-2 text-base font-serif font-medium tracking-wide flex items-center justify-between border-b border-white/5 active:scale-[0.98] transition-transform ${
-                      activeSection === link.id ? "text-[#f4c8d1] font-bold" : "text-white/85 hover:text-white"
-                    }`}
-                  >
-                    <span>{link.name}</span>
-                    <ArrowRight className="w-4 h-4 opacity-50" />
-                  </motion.a>
-                ))}
-
-                <div className="pt-4">
-                  <button
-                    onClick={() => {
-                      closeMenu();
-                      onOpenConsultation();
-                    }}
-                    className="w-full py-3.5 rounded-xl bg-[#f4c8d1] text-[#0b0b0b] font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg active:scale-[0.97] hover:bg-white transition-all duration-160"
-                  >
-                    <span>Request Legal Support</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Top Progress Bar */}
+        <motion.div
+          style={{ scaleX }}
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#6b1728] origin-left"
+        />
       </header>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-30 md:hidden bg-[#09090b]/60 backdrop-blur-sm flex flex-col justify-end">
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
+            className="bg-[#fbfbfa] rounded-t-3xl border-t border-[#e4e4e7] p-6 shadow-2xl"
+          >
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#e4e4e7]">
+              <span className="font-serif font-bold text-lg text-[#09090b]">Menu</span>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-1.5 rounded-lg bg-white border border-[#e4e4e7] text-[#09090b]"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <nav className="flex flex-col space-y-2 mb-6">
+              {navLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-3 rounded-xl text-sm font-semibold text-[#09090b] hover:bg-[#f4f4f5] active:scale-[0.98] transition-all duration-150 flex items-center justify-between"
+                >
+                  <span>{item.label}</span>
+                  <ArrowRight className="w-4 h-4 text-[#71717a]" />
+                </a>
+              ))}
+            </nav>
+
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3.5 rounded-xl bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-md"
+            >
+              <span>Schedule Direct Consultation</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </motion.div>
+        </div>
+      )}
     </>
   );
 };

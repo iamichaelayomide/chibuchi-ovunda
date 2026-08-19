@@ -5,7 +5,9 @@ import {
   Copy,
   Check,
   Send,
-  ShieldCheck
+  ShieldCheck,
+  CheckCircle2,
+  Lock
 } from "lucide-react";
 import { PORTFOLIO_INFO, SERVICES_DATA } from "../data/portfolioData";
 import confetti from "canvas-confetti";
@@ -54,10 +56,10 @@ export const ConsultationContact: React.FC<ConsultationContactProps> = ({
 
     try {
       confetti({
-        particleCount: 70,
+        particleCount: 50,
         spread: 60,
         origin: { y: 0.6 },
-        colors: ["#c84f70", "#f4c8d1", "#0b0b0b", "#a83254"]
+        colors: ["#6b1728", "#09090b", "#9e7b47", "#f4c8d1"]
       });
     } catch {
       // ignore
@@ -89,40 +91,40 @@ ${formData.email}`
 
   const expectations = [
     {
-      title: "Responsive Communication",
-      desc: "Prompt acknowledgment of all inquiries and priority updates within hours."
+      title: "Direct & Prompt Communication",
+      desc: "Priority acknowledgment of all inquiries and structured status check-ins."
     },
     {
-      title: "Clear Processes & Timelines",
-      desc: "Structured workflows, transparent task milestones, and zero surprise delays."
+      title: "Rigorous Confidentiality",
+      desc: "Strict non-disclosure standards applied to all files, communications, and client data."
     },
     {
-      title: "High-Quality, Confidential Support",
-      desc: "Impeccable legal document standards backed by strict non-disclosure protocol."
+      title: "Court-Ready Standard",
+      desc: "Impeccable formatting, citation precision, and adherence to legal formatting conventions."
     },
     {
-      title: "A Dedicated Practice Partner",
-      desc: "A collaborative partner who genuinely cares about your practice’s peace of mind."
+      title: "Turnaround Guarantees",
+      desc: "Predictable deadlines, milestone tracking, and dependable ongoing support."
     }
   ];
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#f4c8d1] relative">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#fbfbfa] border-b border-[#e4e4e7]">
       <div className="max-w-7xl mx-auto">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
-          {/* Left Column: Interactive Consultation Builder */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-[#e6cbd1]">
+          {/* Left Column: Direct Consultation Inquiry Form */}
+          <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-[#e4e4e7] shadow-lg">
             <div className="mb-8">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#a83254] block mb-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#6b1728] block mb-2">
                 Direct Consultation
               </span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0b0b0b] tracking-tight mb-3">
-                Let’s work together.
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#09090b] tracking-tight mb-2.5">
+                Initiate a matter engagement.
               </h2>
-              <p className="text-xs sm:text-sm text-[#0b0b0b]/75 leading-relaxed font-light">
-                Ready to organize your workload, reclaim billable hours, and elevate your practice? Complete the form below to get in touch.
+              <p className="text-xs sm:text-sm text-[#52525b] leading-relaxed font-light">
+                Provide brief context on your practice requirements below to prepare an introductory consultation.
               </p>
             </div>
 
@@ -131,39 +133,39 @@ ${formData.email}`
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
-                className="p-8 rounded-2xl bg-[#fff0f3] border border-[#e6cbd1] text-center"
+                className="p-8 rounded-2xl bg-[#fbfbfa] border border-[#e4e4e7] text-center"
               >
-                <div className="w-14 h-14 rounded-full bg-[#a83254] text-white flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <Check className="w-7 h-7" />
+                <div className="w-12 h-12 rounded-full bg-[#09090b] text-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <Check className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold font-serif text-[#0b0b0b] mb-2">
-                  Inquiry Prepared!
+                <h3 className="text-xl font-bold font-serif text-[#09090b] mb-2">
+                  Inquiry Prepared
                 </h3>
-                <p className="text-xs sm:text-sm text-[#0b0b0b]/80 max-w-md mx-auto mb-6 leading-relaxed">
-                  Your email client has been launched with your inquiry details. You can also email directly:
+                <p className="text-xs sm:text-sm text-[#52525b] max-w-md mx-auto mb-6 leading-relaxed font-light">
+                  Your email client has been launched with your inquiry details. You can also send directly:
                 </p>
-                <div className="inline-flex items-center gap-3 p-3 rounded-xl bg-white border border-[#e6cbd1] text-xs font-bold text-[#0b0b0b] mb-6">
+                <div className="inline-flex items-center gap-3 p-3 rounded-xl bg-white border border-[#e4e4e7] text-xs font-bold text-[#09090b] mb-6">
                   <span>{PORTFOLIO_INFO.email}</span>
                   <button
                     onClick={handleCopyEmail}
-                    className="p-1.5 rounded-lg bg-[#0b0b0b] text-white hover:bg-[#a83254] active:scale-[0.95] transition-all duration-150"
+                    className="p-1.5 rounded-lg bg-[#09090b] text-white hover:bg-[#6b1728] active:scale-[0.95] transition-all duration-150"
                   >
                     <Copy className="w-3.5 h-3.5" />
                   </button>
                 </div>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="block mx-auto text-xs font-bold text-[#a83254] underline hover:opacity-80 active:scale-[0.98] transition-transform"
+                  className="block mx-auto text-xs font-bold text-[#6b1728] underline hover:opacity-80 active:scale-[0.98] transition-transform"
                 >
-                  Send another inquiry
+                  Send another message
                 </button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Multi-Select Services Needed */}
+                {/* Multi-Select Services */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#0b0b0b] mb-2.5">
-                    Select Services of Interest
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#09090b] mb-2.5">
+                    Services of Interest
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {SERVICES_DATA.map((srv) => {
@@ -175,8 +177,8 @@ ${formData.email}`
                           onClick={() => toggleService(srv.title)}
                           className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide active:scale-[0.96] transition-all duration-150 ${
                             isSelected
-                              ? "bg-[#0b0b0b] text-white shadow-sm"
-                              : "bg-[#fff0f3] text-[#0b0b0b] hover:bg-[#feedf1] border border-[#e6cbd1]/60"
+                              ? "bg-[#09090b] text-white shadow-xs"
+                              : "bg-[#f4f4f5] text-[#09090b] hover:bg-[#e4e4e7] border border-[#e4e4e7]"
                           }`}
                         >
                           {isSelected && <Check className="w-3 h-3 inline mr-1" />}
@@ -187,9 +189,9 @@ ${formData.email}`
                   </div>
                 </div>
 
-                {/* Urgency / Retainer Type */}
+                {/* Timeline Selection */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#0b0b0b] mb-2.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#09090b] mb-2.5">
                     Engagement Timeline
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -200,8 +202,8 @@ ${formData.email}`
                         onClick={() => setUrgency(opt)}
                         className={`py-2 px-3 rounded-xl text-xs font-semibold text-center border active:scale-[0.96] transition-all duration-150 ${
                           urgency === opt
-                            ? "bg-[#a83254] text-white border-[#a83254] shadow-sm"
-                            : "bg-white text-[#0b0b0b] border-[#e6cbd1] hover:border-[#a83254]/40"
+                            ? "bg-[#09090b] text-white border-[#09090b] shadow-xs"
+                            : "bg-[#fbfbfa] text-[#09090b] border-[#e4e4e7] hover:border-[#d4d4d8]"
                         }`}
                       >
                         {opt}
@@ -213,7 +215,7 @@ ${formData.email}`
                 {/* Name & Law Firm */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#0b0b0b] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#09090b] mb-1.5">
                       Your Name *
                     </label>
                     <input
@@ -222,124 +224,120 @@ ${formData.email}`
                       placeholder="e.g. Barrister / Attorney Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70] transition-shadow"
+                      className="w-full px-4 py-3 rounded-xl border border-[#e4e4e7] bg-[#fbfbfa] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b] transition-shadow"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#0b0b0b] mb-1.5">
-                      Law Firm / Practice
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#09090b] mb-1.5">
+                      Practice / Law Chambers
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Law Chambers"
+                      placeholder="e.g. Legal Chambers"
                       value={formData.firm}
                       onChange={(e) => setFormData({ ...formData, firm: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70] transition-shadow"
+                      className="w-full px-4 py-3 rounded-xl border border-[#e4e4e7] bg-[#fbfbfa] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b] transition-shadow"
                     />
                   </div>
                 </div>
 
                 {/* Email Address */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#0b0b0b] mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#09090b] mb-1.5">
                     Email Address *
                   </label>
                   <input
                     type="email"
                     required
-                    placeholder="attorney@legalpractice.com"
+                    placeholder="counsel@legalpractice.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70] transition-shadow"
+                    className="w-full px-4 py-3 rounded-xl border border-[#e4e4e7] bg-[#fbfbfa] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b] transition-shadow"
                   />
                 </div>
 
-                {/* Brief Message / Details */}
+                {/* Message */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#0b0b0b] mb-1.5">
-                    Brief Matter or Support Requirements
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#09090b] mb-1.5">
+                    Brief Matter or Support Details
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="Share brief context on documents, trial dates, intake triage, or administrative needs..."
+                    placeholder="Briefly describe matters, brief formatting, intake triage, or administrative support..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#e6cbd1] bg-[#fffaf7] text-xs focus:outline-none focus:ring-2 focus:ring-[#c84f70] transition-shadow"
+                    className="w-full px-4 py-3 rounded-xl border border-[#e4e4e7] bg-[#fbfbfa] text-xs text-[#09090b] focus:outline-none focus:ring-2 focus:ring-[#09090b] transition-shadow"
                   />
                 </div>
 
                 {/* Submit Action */}
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#0b0b0b] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#a83254] active:scale-[0.97] transition-all duration-160 shadow-lg hover:shadow-xl group"
+                  className="w-full py-4 rounded-xl bg-[#09090b] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#6b1728] active:scale-[0.97] transition-all duration-160 shadow-md group"
                 >
-                  <span>Submit Inquiry & Open Direct Email</span>
+                  <span>Submit Inquiry & Open Email</span>
                   <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-160" />
                 </button>
               </form>
             )}
 
             {/* Quick Copy Strip */}
-            <div className="mt-8 pt-6 border-t border-[#e6cbd1] flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#a83254]" />
-                <span className="text-xs font-medium text-[#0b0b0b]">{PORTFOLIO_INFO.email}</span>
+            <div className="mt-8 pt-6 border-t border-[#e4e4e7] flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-xs font-medium text-[#52525b]">
+                <Mail className="w-4 h-4 text-[#6b1728]" />
+                <span>{PORTFOLIO_INFO.email}</span>
               </div>
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#a83254] hover:text-[#0b0b0b] active:scale-[0.95] transition-all duration-150"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#09090b] hover:text-[#6b1728] active:scale-[0.95] transition-all duration-150"
               >
-                {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? "Copied!" : "Copy Email"}</span>
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? "Copied to clipboard" : "Copy email address"}</span>
               </button>
             </div>
 
           </div>
 
-          {/* Right Column: What to Expect & Trust Guarantee */}
+          {/* Right Column: Standard of Practice & Security Guarantee */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#a83254] block mb-2">
-                Partnership Standard
+              <span className="text-xs font-bold uppercase tracking-widest text-[#6b1728] block mb-2">
+                Operational Guarantee
               </span>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#0b0b0b] tracking-tight mb-6">
-                What to expect when working together
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#09090b] tracking-tight mb-6">
+                What to expect from every engagement
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-3.5">
                 {expectations.map((exp, idx) => (
-                  <motion.div
+                  <div
                     key={idx}
-                    initial={{ opacity: 0, x: 16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.06, ease: [0.23, 1, 0.32, 1] }}
-                    className="flex items-start gap-4 p-4 rounded-2xl bg-white/60 border border-white/60 backdrop-blur-sm"
+                    className="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-[#e4e4e7] shadow-xs"
                   >
-                    <div className="w-7 h-7 rounded-full bg-[#0b0b0b] text-[#f4c8d1] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                    <div className="w-6 h-6 rounded-full bg-[#f4f4f5] text-[#6b1728] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
                       ✓
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold font-serif text-[#0b0b0b] mb-1">
+                      <h4 className="text-xs sm:text-sm font-bold font-serif text-[#09090b] mb-0.5">
                         {exp.title}
                       </h4>
-                      <p className="text-xs text-[#0b0b0b]/75 leading-relaxed font-light">
+                      <p className="text-xs text-[#52525b] leading-relaxed font-light">
                         {exp.desc}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
 
-            {/* Bottom Confidentiality Pledge */}
-            <div className="mt-8 p-6 rounded-2xl bg-[#0b0b0b] text-white border border-white/10">
+            {/* Bottom Confidentiality Guarantee Card */}
+            <div className="mt-8 p-6 rounded-2xl bg-[#09090b] text-white border border-[#27272a] shadow-sm">
               <div className="flex items-center gap-2 text-[#f4c8d1] mb-2 font-bold text-xs uppercase tracking-wider">
-                <ShieldCheck className="w-4 h-4" />
-                <span>Confidentiality & Privilege Guarantee</span>
+                <ShieldCheck className="w-4 h-4 text-[#f4c8d1]" />
+                <span>Privilege & Non-Disclosure Guarantee</span>
               </div>
               <p className="text-xs text-white/70 leading-relaxed font-light">
-                All communications, case files, and consultation inquiries are handled with strict non-disclosure practices in accordance with professional legal standards.
+                All client communications, case files, and consultation inquiries are protected under strict non-disclosure practices in accordance with professional legal standards.
               </p>
             </div>
 
